@@ -2,6 +2,8 @@
 
 Wordpress starting framework for magic websites.
 
+The full documentation of the framework can be found here: https://ideonetwork.github.io/wideo
+
 ## Installation
 
 Run the following commands inside the wp-content/themes directory:
