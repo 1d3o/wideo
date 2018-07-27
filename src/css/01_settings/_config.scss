@@ -1,0 +1,195 @@
+// Project config map
+
+$_settings: (
+  'use-opentype'       : false,
+  'use-icon-fonts'     : false,
+  'use-font-smooth'    : true,
+  'form-controls'      : false,
+  'set-mq-signature'   : true,
+  'sticky-footer'      : false
+);
+
+// Retrieve data from the settings map
+@function settings($key) {
+  @return map-get($_settings, $key);
+}
+
+// COLORS
+
+//Project-colors
+$black        :  #000000;
+$white        :  #ffffff;
+$mine-shaft   :  #333333;
+
+// Social-brand colors
+$fb           :  #3b5998;
+$twitter      :  #55acee;
+$gplus        :  #dd4b39;
+$linkedin     :  #007bb6;
+$instagram    :  #517fa4;
+$pinterest    :  #cb2027;
+$flickr-1     :  #ff0084;
+$flickr-2     :  #0063dc;
+$tumblr       :  #32506d;
+$dribble      :  #ea4c89;
+$behance      :  #1769ff;
+$vine         :  #00bf8f;
+$spotify      :  #2ebd59;
+$tripadvisor  :  #589442;
+$yahoo        :  #400191;
+$youtube      :  #cd201f;
+
+// TYPOGRAPHY
+
+$font-family-sans-serif : -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+$font-family-serif      : "Palatino Linotype", "Times New Roman", serif !default;
+$font-family-monospace  : "Consolas", "Monaco", "Bitstream Vera Sans Mono", "Courier", monospace !default;
+$font-stack             : $font-family-sans-serif !default;
+$font-size-base         : 1em !default;
+$em-base                : 16px;
+$line-base              : 1.5 !default;
+$font-sans              : $font-family-sans-serif;
+$font-serif             : $font-family-serif;
+
+// The vertical grid unit. Margin, padding, and line-height are set to multiples
+// of this value. This is the value that determines the baseline for our vertical
+// rhythm. The default value of 6px allows more fine tuned designs that still
+// obey vertical rhythm.
+$base-vertical-unit: 6px !default;
+// The value that multiplies the $base-vertical-unit to get the $base-line-height.
+// This gives type an ideal line-height.
+$base-line-multi: 4 !default;
+// Base font size in pixels.
+$base-font-size: 16px !default;
+// Modular scale ratio that is used to figure out all the different font sizes
+$ms-ratio: 1.414 !default;
+
+// [1] Paragraph setting that you can turn on or off the indent of the first line
+// of a new paragraph.
+// [2] Paragraph setting that you can turn on or off to have your paragraphs ragged
+// right or justified.
+$paragraph-indent: true !default; // [1]
+$paragraph-justify: true !default; // [2]
+
+// Creates a handy variable for the 1em
+$base-em-font-size: 1em;
+
+// Generates modular scale values in Ems. If you need more size up and/or down.
+$ms-down1: $base-em-font-size / $ms-ratio;
+$ms-down2: $ms-down1 /$ms-ratio;
+$ms-down3: $ms-down2 / $ms-ratio;
+$ms-down4: $ms-down3 / $ms-ratio;
+$ms-up1: $base-em-font-size * $ms-ratio;
+$ms-up2: $ms-up1 * $ms-ratio;
+$ms-up3: $ms-up2 * $ms-ratio;
+$ms-up4: $ms-up3 * $ms-ratio;
+$ms-up5: $ms-up4 * $ms-ratio;
+$ms-up6: $ms-up5 * $ms-ratio;
+$ms-up7: $ms-up6 * $ms-ratio;
+$ms-up8: $ms-up7 * $ms-ratio;
+$ms-up9: $ms-up8 * $ms-ratio;
+$ms-up10: $ms-up9 * $ms-ratio;
+
+// Warning text for when an integer is not used in rhythm functions
+$not-integer-txt: ' value breaks vertical rhythm. Use an integer (whole number) for $lines.';
+
+// By default, this inherits from the body.
+$headings-font-family : $font-family-sans-serif !default;
+$headings-color       : inherit !default;
+$headings-line-height : 1.25 !default;
+
+// BASE
+
+$body-bg          : $white !default;
+$base-spacing     : $line-base * $font-size-base !default;
+$text-color       : $black !default;
+$link-color       : $black !default;
+
+$selection-color  : $body-bg !default;
+$selection-bg     : $text-color !default;
+
+// MODULES
+
+
+
+// VIEWS
+$container-max-widths: (
+  main: 1000px,
+  large: 1170px
+) !default;
+
+
+// The Spaces map is great for maintaining consistency in your development.
+$space-base: 4px !default;
+$spaces: (
+  xxxs: $space-base,
+  xxs: $space-base * 2,
+  xs: $space-base * 3,
+  sm: $space-base * 4,
+  md: $space-base * 5,
+  lg: $space-base * 6,
+  xl: $space-base * 7,
+  xxl: $space-base * 8,
+  xxxl: $space-base * 9
+) !default;
+
+// Breakpoints
+$breakpoints: (
+  phone-down: 319px,
+  phone: 320px,
+  mobile-down: 540px,
+  mobile: 541px,
+  tab-down: 767px,
+  desk-down: 1023px,
+  desk: 1024px,
+  large: 1200px,
+  x-large: 1600px
+) !default;
+
+// CSS cubic-bezier timing functions.
+// Refer to http://cubic-bezier.com/ or http://matthewlein.com/ceaser/ for more.
+$easing: (
+  in-quad: cubic-bezier(0.550,  0.085, 0.680, 0.530),
+  in-cubic:  cubic-bezier(0.550,  0.055, 0.675, 0.190),
+  in-quart:  cubic-bezier(0.895,  0.030, 0.685, 0.220),
+  in-quint:  cubic-bezier(0.755,  0.050, 0.855, 0.060),
+  in-sine:  cubic-bezier(0.470,  0.000, 0.745, 0.715),
+  in-expo:  cubic-bezier(0.950,  0.050, 0.795, 0.035),
+  in-circ:  cubic-bezier(0.600,  0.040, 0.980, 0.335),
+  in-back:  cubic-bezier(0.600, -0.280, 0.735, 0.045),
+  out-quad:  cubic-bezier(0.250,  0.460, 0.450, 0.940),
+  out-cubic:  cubic-bezier(0.215,  0.610, 0.355, 1.000),
+  out-quart:  cubic-bezier(0.165,  0.840, 0.440, 1.000),
+  out-quint:  cubic-bezier(0.230,  1.000, 0.320, 1.000),
+  out-sine:  cubic-bezier(0.390,  0.575, 0.565, 1.000),
+  out-expo:  cubic-bezier(0.190,  1.000, 0.220, 1.000),
+  out-circ:  cubic-bezier(0.075,  0.820, 0.165, 1.000),
+  out-back:  cubic-bezier(0.175,  0.885, 0.320, 1.275),
+  in-out-quad:  cubic-bezier(0.455,  0.030, 0.515, 0.955),
+  in-out-cubic:  cubic-bezier(0.645,  0.045, 0.355, 1.000),
+  in-out-quart:  cubic-bezier(0.770,  0.000, 0.175, 1.000),
+  in-out-quint:  cubic-bezier(0.860,  0.000, 0.070, 1.000),
+  in-out-sine:  cubic-bezier(0.445,  0.050, 0.550, 0.950),
+  in-out-expo:  cubic-bezier(1.000,  0.000, 0.000, 1.000),
+  in-out-circ:  cubic-bezier(0.785,  0.135, 0.150, 0.860),
+  in-out-back:  cubic-bezier(0.680, -0.550, 0.265, 1.550),
+  elastic: cubic-bezier(0.320,  1.259, 0.375, 1.150),
+  snappy: cubic-bezier(0.694,  0.048, 0.335, 1.000),
+  cubic-snap: cubic-bezier(1.000,  0.000, 0.175, 1.000)
+);
+
+// CSS-to-JS map
+$mq-breakpoints: (
+  mobile: 640px,
+  mobile-up: 641px,
+  desk: 1024px
+);
+
+// Z-Layers Map
+$z-layers: (
+  god       :  999,
+  highest   :  100,
+  above     :  2,
+  default   :  1,
+  behind    :  -1
+);

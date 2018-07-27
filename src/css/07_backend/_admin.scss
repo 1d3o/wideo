@@ -1,0 +1,33 @@
+// Wordpress override:
+
+html.wp-toolbar {
+  padding-top: 50px;
+}
+
+body.wp-admin {
+  background-color: #eee !important;
+}
+
+#wpadminbar {
+  height: 50px;
+  line-height: 50px;
+}
+
+#wp-toolbar {
+  margin-top: 8px;
+}
+
+// Custom components:
+
+.ideo-wp-box {
+  background: #FFFFFF;
+  border: 1px solid #E5E5E5;
+  position: relative;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+  padding: 15px;
+}
+
+.ideo-wp-code {
+  border: 1px solid #E5E5E5;
+  padding: 0 5px;
+}
