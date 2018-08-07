@@ -42,7 +42,7 @@
 
   <?php if (current_user_can('administrator')) : ?>
 
-    <div class="ideo-wp-box">
+    <div class="wideo-box">
       <h2>Guida</h2>
       <p>
       I settaggi permettono di definire e accedere facilmente a impostazioni globali del template.
@@ -51,7 +51,7 @@
 
       <h4>Utilizzo</h4>
       <p>Iserire la configurazione delle impostazioni:</p>
-      <div class="ideo-wp-code">
+      <div class="wideo-code">
 <pre>
 function wideo_tpl_initialize() {
   return array(
@@ -65,7 +65,7 @@ function wideo_tpl_initialize() {
       </div>
       <br>
       <p>Ottenere il valore di una impostazione:</p>
-      <div class="ideo-wp-code">
+      <div class="wideo-code">
 <pre>
 echo get_option('tpl_setting_key');
 </pre>

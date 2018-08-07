@@ -90,7 +90,7 @@ add_action( 'admin_menu', 'wideo_remove_page_attribute_meta_box' );
 function wideo_set_default_admin_color($user_id) {
   $args = array(
       'ID' => $user_id,
-      'admin_color' => 'sunrise'
+      'admin_color' => 'default'
   );
   wp_update_user( $args );
 }
