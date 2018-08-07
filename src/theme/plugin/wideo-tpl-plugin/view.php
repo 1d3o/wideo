@@ -5,7 +5,7 @@
   <?php if ($initialize_missing) : ?>
 
     <div class="notice notice-warning">
-      <p>Il plugin di gestione settaggi non è stato correttamente configurato.</p>
+      <p>Il plugin di gestione settaggi non è stato configurato.</p>
     </div>
 
   <?php else : ?>

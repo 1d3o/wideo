@@ -15,3 +15,4 @@ require_once (__DIR__ . '/functions/require-plugins.php');
 // Set custom plugins settings.
 require_once (__DIR__ . '/functions/plugin-wideo-tpl.php');
 require_once (__DIR__ . '/functions/plugin-wideo-logger.php');
+require_once (__DIR__ . '/functions/plugin-wideo-mailer.php');

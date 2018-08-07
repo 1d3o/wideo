@@ -34,7 +34,7 @@ function wideo_logger_create_db() {
 }
 add_action( 'after_setup_theme', 'wideo_logger_create_db' );
 
-// Function used to create a new log about a request.
+// Function used to create a new log.
 function wideo_logger_create_log($type, $content) {
 	global $wpdb;
 	$table_name = $wpdb->prefix . 'wideo_logger';
