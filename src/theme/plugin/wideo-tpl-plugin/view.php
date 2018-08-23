@@ -5,7 +5,7 @@
   <?php if ($initialize_missing) : ?>
 
     <div class="notice notice-warning">
-      <p>Il plugin di gestione settaggi non è stato configurato.</p>
+      <p>Il plugin di gestione settaggi non è stato correttamente configurato.</p>
     </div>
 
   <?php else : ?>
@@ -16,33 +16,37 @@
       </div>
     <?php endif; ?>
 
-    <form method="POST">
-      <table class="form-table">
-          <tbody>
-            <?php foreach($settings as $key => $value) : ?>
-              <?php if (!$value['only_admin'] || current_user_can('administrator')) : ?>
-                <tr>
-                  <th scope="row">
-                    <label for="my-text-field"><?php echo $value['label']; ?>:</label>
-                  </th>
-                  <td>
-                    <input type="text" style="width: 100%;" name="tpl_<?php echo $key; ?>" value="<?php echo get_option("tpl_$key"); ?>">
-                  </td>
-                </tr>
-              <?php endif; ?>
-            <?php endforeach; ?>
-          </tbody>
-      </table>
-      <p class="submit">
-        <input type="submit" value="Aggiorna impostazioni" class="button-primary" name="Submit">
-      </p>
-    </form>
+    <div class="card" style="max-width: 100%;">
+
+      <form method="POST">
+        <table class="form-table">
+            <tbody>
+              <?php foreach($settings as $key => $value) : ?>
+                <?php if (!$value['only_admin'] || current_user_can('administrator')) : ?>
+                  <tr>
+                    <th scope="row">
+                      <label for="my-text-field"><?php echo $value['label']; ?>:</label>
+                    </th>
+                    <td>
+                      <input type="text" style="width: 100%;" name="tpl_<?php echo $key; ?>" value="<?php echo get_option("tpl_$key"); ?>">
+                    </td>
+                  </tr>
+                <?php endif; ?>
+              <?php endforeach; ?>
+            </tbody>
+        </table>
+        <div style="text-align: right; padding: 10px;">
+          <input type="submit" value="Aggiorna impostazioni" class="button-primary" name="Submit">
+        </div>
+      </form>
+
+    </div>
 
   <?php endif; ?>
 
   <?php if (current_user_can('administrator')) : ?>
 
-    <div class="wideo-box">
+    <div class="card" style="max-width: 100%;">
       <h2>Guida</h2>
       <p>
       I settaggi permettono di definire e accedere facilmente a impostazioni globali del template.
@@ -51,8 +55,8 @@
 
       <h4>Utilizzo</h4>
       <p>Iserire la configurazione delle impostazioni:</p>
-      <div class="wideo-code">
-<pre>
+      <div>
+      <pre>
 function wideo_tpl_initialize() {
   return array(
     'setting_key' => array(
@@ -61,14 +65,14 @@ function wideo_tpl_initialize() {
     ),
   );
 }
-</pre>
+      </pre>
       </div>
       <br>
       <p>Ottenere il valore di una impostazione:</p>
-      <div class="wideo-code">
-<pre>
+      <div>
+      <pre>
 echo get_option('tpl_setting_key');
-</pre>
+      </pre>
       </div>
     </div>
 
