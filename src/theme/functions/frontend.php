@@ -7,7 +7,7 @@ function wideo_enqueue_scripts() {
   $template_directory = get_template_directory_uri();
 
   wp_enqueue_style('theme-css', $template_directory.'/css/theme.css');
-  wp_enqueue_script('theme-js', $template_directory. '/js/main.js');
+  wp_enqueue_script('theme-js', $template_directory. '/js/main.js', '', '1.0.0', true);
 
   wp_deregister_script('jquery' );
 } 
