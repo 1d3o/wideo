@@ -19,9 +19,9 @@ import { argv } from 'yargs'
 // Gulpfile settings.
 // Update settings here.
 // ***********************************************************
-
-const distPath = '../dist'
-const proxy = 'http://localhost:8888'
+const nameTheme = 'europromos'
+const distPath = '../'+nameTheme+''
+const proxy = 'http://europromos.sviluppo/'
 
 // ***********************************************************
 
