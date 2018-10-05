@@ -1,7 +1,7 @@
 /**
  * Copyright 2018 ídeo SRL (@ideonetwork)
  * Released under the MIT license (http://mit-license.org)
-*/
+ */
 
 import gulp from 'gulp'
 import gulpLoadPlugins from 'gulp-load-plugins'
@@ -14,14 +14,16 @@ import babelify from 'babelify'
 import source from 'vinyl-source-stream'
 import buffer from 'vinyl-buffer'
 import assign from 'lodash.assign'
-import { argv } from 'yargs'
+import {
+  argv
+} from 'yargs'
 
 // Gulpfile settings.
 // Update settings here.
 // ***********************************************************
-const nameTheme = 'europromos'
-const distPath = '../'+nameTheme+''
-const proxy = 'http://europromos.sviluppo/'
+const nameTheme = 'wideo'
+const distPath = `../${nameTheme}`
+const proxy = 'http://localhost:8888'
 
 // ***********************************************************
 
@@ -53,7 +55,9 @@ function styles() {
     )
     .pipe($.autoprefixer(['last 3 versions', 'ie >= 9', 'and_chr >= 2.3']))
     .pipe($.if(!argv.pretty, $.cssnano()))
-    .pipe($.size({ title: 'Styles' }))
+    .pipe($.size({
+      title: 'Styles'
+    }))
     .pipe($.if(argv.pretty, $.sourcemaps.write('./')))
     .pipe(gulp.dest(`${distPath}/css`))
 }
@@ -69,11 +73,17 @@ function scripts() {
     })
     .pipe(source('main.js'))
     .pipe(buffer())
-    .pipe($.if(argv.pretty, $.sourcemaps.init({ loadMaps: true })))
-    .pipe($.if(!argv.pretty, $.uglify({ preserveComments: 'some' })))
+    .pipe($.if(argv.pretty, $.sourcemaps.init({
+      loadMaps: true
+    })))
+    .pipe($.if(!argv.pretty, $.uglify({
+      preserveComments: 'some',
+    })))
     .pipe($.if(argv.pretty, $.sourcemaps.write('./')))
     .pipe(gulp.dest(`${distPath}/js`))
-    .pipe(browserSync.reload({ stream: true }))
+    .pipe(browserSync.reload({
+      stream: true
+    }))
 }
 
 function img() {
@@ -90,7 +100,9 @@ function img() {
         removeEmptyAttrs: true,
       }],
     }))
-    .pipe($.size({ title: 'img' }))
+    .pipe($.size({
+      title: 'img'
+    }))
     .pipe(gulp.dest(`${distPath}/img`))
 }
 
@@ -113,7 +125,7 @@ gulp.task('img', img)
 gulp.task('copyTheme', copyTheme)
 gulp.task('copyFonts', copyFonts)
 
-gulp.task('serve', () => {
+gulp.task('dev', () => {
   const startTime = Date.now()
   runSequence(['styles', 'scripts', 'img', 'copyTheme', 'copyFonts'], () => {
     console.log('\x1b[42m************************************\x1b[0m\n')
@@ -138,14 +150,10 @@ gulp.task('serve', () => {
   })
 })
 
-gulp.task('compile', () => {
-  runSequence(['styles', 'scripts', 'img', 'copyTheme', 'copyFonts'])
-})
-
-gulp.task('production', () => {
+gulp.task('build', () => {
   runSequence(['styles', 'scripts', 'img', 'copyTheme', 'copyFonts'])
 })
 
 gulp.task('default', () => {
-  runSequence('serve', () => {})
+  runSequence('dev', () => {})
 })

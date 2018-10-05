@@ -49,8 +49,8 @@ The last thing to do is to <b>change the gulp settings</b> about the dist direct
 // Gulpfile settings.
 // Update settings here.
 // ***********************************************************
-
-const distPath = '../dist' // <- change with a new path if you want
+const nameTheme = 'wideo'
+const distPath = `../${nameTheme}` // <- change with a new path if you want
 const proxy = 'http://localhost:8888' // <- change with a new url if you want
 
 // ...
@@ -59,6 +59,6 @@ const proxy = 'http://localhost:8888' // <- change with a new url if you want
 Now you can <b>start the development</b> or compile the project running the following commands:
 
 ``` js
-npm run start // <- start the development environment
-npm run dist // <- compile the template for production
+npm run start:dev // <- start the development environment
+npm run build // <- compile the template for production
 ```

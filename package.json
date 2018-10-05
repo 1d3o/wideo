@@ -7,11 +7,10 @@
     "node": ">=8.0.0"
   },
   "scripts": {
-    "start": "gulp serve --pretty",
-    "start-server": "gulp serve --pretty --server",
-    "compile-dev": "gulp compile --pretty",
-    "compile-dist": "gulp compile",
-    "dist": "gulp production"
+    "start": "gulp dev",
+    "start:dev": "gulp dev --pretty",
+    "start:dev:server": "gulp dev --pretty --server",
+    "build": "gulp build"
   },
   "author": {
     "name": "ídeo",
