@@ -7,7 +7,7 @@ function sam_tgm_plugin(){
 			'slug' => 'wp-sync-db',
 			'source' => 'https://github.com/wp-sync-db/wp-sync-db/archive/1.5.zip',
 			'required' => true,
-			'external_url' => 'https://github.com/wp-sync-db/wp-sync-db/'
+			'external_url' => 'https://github.com/wp-sync-db/wp-sync-db'
 		), 
 		array(
 			'name' => 'WP Sync DB media files',
@@ -15,7 +15,31 @@ function sam_tgm_plugin(){
 			'source' => 'https://github.com/wp-sync-db/wp-sync-db-media-files/archive/master.zip',
 			'required' => true,
 			'external_url' => 'https://github.com/wp-sync-db/wp-sync-db-media-files'
-		), 
+		),
+		array(
+			'name' => 'Yoast SEO',
+			'slug' => 'wordpress-seo',
+			'required' => false,
+			'external_url' => 'https://it.wordpress.org/plugins/wordpress-seo/'
+		),
+		array(
+			'name' => 'WP Fastest Cache',
+			'slug' => 'wp-fastest-cache',
+			'required' => false,
+			'external_url' => 'https://it.wordpress.org/plugins/wp-fastest-cache/'
+		),
+		array(
+			'name' => 'iThemes Security',
+			'slug' => 'better-wp-security',
+			'required' => false,
+			'external_url' => 'https://it.wordpress.org/plugins/better-wp-security/'
+		),
+		array(
+			'name' => 'Force HTTPS',
+			'slug' => 'force-https-littlebizzy',
+			'required' => false,
+			'external_url' => 'https://it.wordpress.org/plugins/force-https-littlebizzy/'
+		),
 	);
 
 	$config = array(

@@ -12,5 +12,4 @@
 // }
 // add_action( 'phpmailer_init', 'mailer_config');
 
-
 include_once( get_stylesheet_directory() . '/plugin/wideo-mailer-plugin/mailer.php');
