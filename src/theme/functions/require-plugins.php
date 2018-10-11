@@ -52,6 +52,12 @@ function sam_tgm_plugin(){
 			'required' => false,
 			'external_url' => 'https://it.wordpress.org/plugins/quick-pagepost-redirect-plugin/'
 		),
+		array(
+			'name' => 'WP Mail SMTP',
+			'slug' => 'wp-mail-smtp',
+			'required' => false,
+			'external_url' => 'https://it.wordpress.org/plugins/wp-mail-smtp/'
+		),
 	);
 
 	$config = array(

@@ -38,9 +38,9 @@ add_filter( 'jpeg_quality', create_function( '', 'return 80;' ) );
 // Disactive wp updates.
 // ***********************************************************
 
-// add_filter( 'pre_site_transient_update_core', create_function( '$a', "return null;" ) );
-// add_filter( 'pre_site_transient_update_plugins', create_function( '$a', "return null;" ) );
-// add_filter( 'pre_site_transient_update_themes', create_function( '$a', "return null;" ) );
+add_filter( 'pre_site_transient_update_core', create_function( '$a', "return null;" ) );
+add_filter( 'pre_site_transient_update_plugins', create_function( '$a', "return null;" ) );
+add_filter( 'pre_site_transient_update_themes', create_function( '$a', "return null;" ) );
 
 // Enable / disable edit theme options.
 // ***********************************************************
