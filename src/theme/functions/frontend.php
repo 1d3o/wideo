@@ -9,11 +9,8 @@ function wideo_enqueue_scripts() {
   
   wp_enqueue_style('theme-css', $template_directory.'/css/theme.css');
   wp_enqueue_script('theme-js', $template_directory. '/js/main.js', '', '1.0.0', true);
-
-
 } 
 add_action('wp_enqueue_scripts', 'wideo_enqueue_scripts');
-
 
 // Clean Wordpress meta tag (active them for a blog).
 // ***********************************************************
@@ -79,11 +76,11 @@ add_filter('page_css_class', 'wideo_clean_menus_classes');
 // Add custom menus classes.
 // **********************************************************************
 
-function add_custom_menus_classes($classes, $item, $args) {
+function wideo_add_custom_menus_classes($classes, $item, $args) {
   $classes[] = 'c-navbar__item';
   return $classes;
 }
-add_filter('nav_menu_css_class','add_custom_menus_classes', 1, 3);
+add_filter('nav_menu_css_class','wideo_add_custom_menus_classes', 1, 3);
 
 // Remove classes from the post thumbnail.
 // ***********************************************************
