@@ -100,7 +100,7 @@ add_action('user_register', 'wideo_set_default_admin_color');
 // ***********************************************************
 
 function wideo_my_login_redirect($redirect_to, $request) {
-  $redirect_url = get_bloginfo( 'url' ) . '/wp-admin/index.php';
+  $redirect_url = home_url() . '/wp-admin/index.php';
   return $redirect_url;
 }
 add_filter("login_redirect", "wideo_my_login_redirect", 10, 3);
