@@ -35,22 +35,10 @@ function sam_tgm_plugin(){
 			'external_url' => 'https://it.wordpress.org/plugins/better-wp-security/'
 		),
 		array(
-			'name' => 'Force HTTPS',
-			'slug' => 'force-https-littlebizzy',
-			'required' => false,
-			'external_url' => 'https://it.wordpress.org/plugins/force-https-littlebizzy/'
-		),
-		array(
 			'name' => 'Optimus Image Optimizer',
 			'slug' => 'optimus',
 			'required' => false,
 			'external_url' => 'https://it.wordpress.org/plugins/optimus/'
-		),
-		array(
-			'name' => 'Quick Page/Post Redirect',
-			'slug' => 'quick-pagepost-redirect-plugin',
-			'required' => false,
-			'external_url' => 'https://it.wordpress.org/plugins/quick-pagepost-redirect-plugin/'
 		),
 		array(
 			'name' => 'WP Mail SMTP',

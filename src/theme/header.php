@@ -32,6 +32,8 @@
     <meta property="og:url" content="<?php echo get_site_url(); ?>" />
     <meta property="og:description" content="<?php bloginfo('description'); ?>" />
 
+    <!-- Consider to add PWA data :) -->
+
     <?php wp_head(); ?>
   </head>
 
