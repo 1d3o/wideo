@@ -38,10 +38,10 @@ add_filter( 'jpeg_quality', create_function( '', 'return 80;' ) );
 // Disactive wp updates.
 // ***********************************************************
 
-add_filter( 'pre_site_transient_update_core', create_function( '$a', "return null;" ) );
-add_filter( 'pre_site_transient_update_plugins', create_function( '$a', "return null;" ) );
-add_filter( 'pre_site_transient_update_themes', create_function( '$a', "return null;" ) );
 
+define( 'WP_AUTO_UPDATE_CORE', minor );
+add_filter( 'auto_update_plugin', '__return_false' );
+add_filter( 'auto_update_theme', '__return_false' );
 // Enable / disable edit theme options.
 // ***********************************************************
 
