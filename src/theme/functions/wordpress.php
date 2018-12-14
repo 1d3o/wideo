@@ -38,10 +38,10 @@ add_filter( 'jpeg_quality', create_function( '', 'return 80;' ) );
 // Disactive wp updates.
 // ***********************************************************
 
-
 define( 'WP_AUTO_UPDATE_CORE', minor );
 add_filter( 'auto_update_plugin', '__return_false' );
 add_filter( 'auto_update_theme', '__return_false' );
+
 // Enable / disable edit theme options.
 // ***********************************************************
 
