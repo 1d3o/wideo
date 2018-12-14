@@ -1,19 +1,19 @@
 <?php
 
-include_once (__DIR__ . '/plugin/tgm.php');
+require get_template_directory() . '/plugin/tgm.php';
 
 // Basic wordpress functions.
-include_once (__DIR__ . '/functions/wordpress.php');
-include_once (__DIR__ . '/functions/frontend.php');
-include_once (__DIR__ . '/functions/backend.php');
-include_once (__DIR__ . '/functions/navigation.php');
-include_once (__DIR__ . '/functions/custom-post-types.php');
+require get_template_directory() . '/functions/wordpress.php';
+require get_template_directory() . '/functions/frontend.php';
+require get_template_directory() . '/functions/backend.php';
+require get_template_directory() . '/functions/navigation.php';
+require get_template_directory() . '/functions/custom-post-types.php';
 
 // Require plugins using tgm class.
-include_once (__DIR__ . '/functions/require-plugins.php');
+require get_template_directory() . '/functions/require-plugins.php';
 
 // Set custom plugins settings.
-include_once (__DIR__ . '/functions/plugin-wideo-tpl.php');
-/* include_once (__DIR__ . '/functions/plugin-wideo-logger.php');
+require get_template_directory() . '/functions/plugin-wideo-tpl.php';
+/* require get_template_directory() . '/functions/plugin-wideo-logger.php';
  */
-include_once (__DIR__ . '/functions/plugin-wideo-mailer.php');
+require get_template_directory() . '/functions/plugin-wideo-mailer.php';
