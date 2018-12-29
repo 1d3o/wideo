@@ -15,7 +15,7 @@ import source from 'vinyl-source-stream'
 import buffer from 'vinyl-buffer'
 import assign from 'lodash.assign'
 import {
-  argv
+  argv,
 } from 'yargs'
 
 // Gulpfile settings.
@@ -101,7 +101,7 @@ function img() {
       }],
     }))
     .pipe($.size({
-      title: 'img'
+      title: 'img',
     }))
     .pipe(gulp.dest(`${distPath}/img`))
 }

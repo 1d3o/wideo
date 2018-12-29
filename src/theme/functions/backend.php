@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * This files contains some functions used to personalize the backend of the theme.
+ */
+
 // Remove dashboard widgets.
 // ***********************************************************
 

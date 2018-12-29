@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * This files contains some functions used to personalize the frontend of the theme.
+ */
+
 // Load scripts on theme.
 // ***********************************************************
 
