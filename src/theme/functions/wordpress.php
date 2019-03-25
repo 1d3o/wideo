@@ -34,10 +34,6 @@ add_post_type_support('page', 'excerpt');
 remove_action('wp_head', 'print_emoji_detection_script', 7); 
 remove_action('wp_print_styles', 'print_emoji_styles');
 
-// Add default image compression
-// **********************************************************************
-
-add_filter( 'jpeg_quality', create_function( '', 'return 80;' ) );
 
 // Disactive wp updates.
 // ***********************************************************
@@ -50,3 +46,10 @@ add_filter('auto_update_theme', '__return_false');
 // ***********************************************************
 
 define('DISALLOW_FILE_EDIT', true);
+
+
+// disable for posts and pages
+add_filter('use_block_editor_for_post', '__return_false', 10);
+
+// disable for post types
+add_filter('use_block_editor_for_post_type', '__return_false', 10);
