@@ -32,6 +32,15 @@ remove_action('wp_head', 'start_post_rel_link', 10, 0 ); // start link
 add_filter('the_generator', '__return_false'); // remove the WordPress version from RSS feeds
 add_theme_support('automatic-feed-links' );
 
+
+/* Rimuove la versione dai file CSS e JS */
+function remove_cssjs_ver( $src ) {
+  if( strpos( $src, '?ver=' ) )
+    $src = remove_query_arg( 'ver', $src );
+  return $src;
+}
+add_filter( 'style_loader_src', 'remove_cssjs_ver', 1000 );
+add_filter( 'script_loader_src', 'remove_cssjs_ver', 1000 );
 // Update Body classes.
 // ***********************************************************
 
