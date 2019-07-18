@@ -38,16 +38,11 @@ remove_action('wp_print_styles', 'print_emoji_styles');
 // Disactive wp updates.
 // ***********************************************************
 
-define('WP_AUTO_UPDATE_CORE', 'minor' );
-add_filter('auto_update_plugin', '__return_false');
-add_filter('auto_update_theme', '__return_false');
 
-<<<<<<< HEAD
 define( 'WP_AUTO_UPDATE_CORE', 'minor' );
 add_filter( 'auto_update_plugin', '__return_false' );
 add_filter( 'auto_update_theme', '__return_false' );
-=======
->>>>>>> e2173514e21b4cb03391e88d3aaaa4e66c454d8a
+
 // Enable / disable edit theme options.
 // ***********************************************************
 

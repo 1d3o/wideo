@@ -120,8 +120,7 @@ function wideo_render_field( $id ) {
           break;
         case 'email_client':
           $visibility_class = ( '' != $field_value ) ? "" : "hide";
-          echo "<input type='email value='" . $field_value . "' class='wideo-custom-email " . $visibility_class . "' id='" . $id . "-email-client' />";
-          echo "<input type='hidden' name='wideo_options[" . $id . "]' id='" . $id . "-upload-field' value='" . $field_value . "' />";
+          echo "<input type='email' value='" . $field_value . "' name='wideo_options[" . $id . "]' class='wideo-custom-email' id='" . $id . "' />";
           echo "<p class='description'>" . $wideo_fields[ $id ]['desc'] . "</p>";
           
           break;
