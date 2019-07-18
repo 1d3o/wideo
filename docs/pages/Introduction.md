@@ -9,6 +9,7 @@ It uses <b>gulp task manager</b> to run tasks and compile assets, <b>browser syn
 - <b>./src/theme</b> : contains all files that are usually used on a Wordpress theme (style.css, screeshot.png and all .php template files).
   - <b>./src/theme/functions</b> : contains the classic functions.php content splitted on multiple files.
   - <b>./src/theme/plugin</b> : contains custom theme plugins.
+  - <b>./src/theme/assets</b> : contains favicons, manifest.json, browserconfig.xml and other files for a better expericence with browser.
 - <b>./src/js</b> : contains all js modules. The gulp javascript task should take as source the main.js file.
 - <b>./src/img</b> : contains all images used by the site.
 - <b>./src/fonts</b> : contains all fonts used by the site.

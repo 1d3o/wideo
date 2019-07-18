@@ -53,6 +53,14 @@ $wideo_fields = [
         'desc'     => "Inserisci l'immagine della hero della pagina 404",
         'sanitize' => ''
     ],
+    'wideo-email-client' => [
+        'title'    => 'Email',
+        'type'     => 'email_client',
+        'section'  => 'section-theme-settings',
+        'default'  => '',
+        'desc'     => "Inserisci l'email",
+        'sanitize' => 'full'
+    ],
     
 ];
 /******************************************************************************
@@ -107,6 +115,13 @@ function wideo_render_field( $id ) {
           echo "<input type='hidden' name='wideo_options[" . $id . "]' id='" . $id . "-upload-field' value='" . $field_value . "' />";
           echo "<input type='button' class='btn-upload-img button' value='carica immagine' data-field-id='" . $id . "' />";
           echo "<input type='button' class='btn-remove-img button " . $visibility_class . "' value='Rimuovi immagine' data-field-id='" . $id . "' id='" . $id . "-remove-button' />";
+          echo "<p class='description'>" . $wideo_fields[ $id ]['desc'] . "</p>";
+          
+          break;
+        case 'email_client':
+          $visibility_class = ( '' != $field_value ) ? "" : "hide";
+          echo "<input type='email value='" . $field_value . "' class='wideo-custom-email " . $visibility_class . "' id='" . $id . "-email-client' />";
+          echo "<input type='hidden' name='wideo_options[" . $id . "]' id='" . $id . "-upload-field' value='" . $field_value . "' />";
           echo "<p class='description'>" . $wideo_fields[ $id ]['desc'] . "</p>";
           
           break;

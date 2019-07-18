@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * This files contains some functions used to define the website navigations.
+ */
+
 // Helpers used to render menu.
 // ***********************************************************
 

@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * This files contains some functions used to initialize custom post types and custom taxonomies.
+ */
+
 // Custom post type.
 // ***********************************************************
 
@@ -16,6 +20,7 @@
 //       'supports' => array('title'),
 //       'public' => true,
 //       'has_archive' => true,
+//       'show_in_rest' => true,
 //       'capability_type' => array('cpt', 'cpts')
 //     )
 //   );

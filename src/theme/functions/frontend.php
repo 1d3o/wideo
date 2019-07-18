@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * This files contains some functions used to personalize the frontend of the theme.
+ */
+
 // Load scripts on theme.
 // ***********************************************************
 
@@ -40,6 +44,15 @@ function sdt_remove_ver_css_js( $src, $handle )
     return $src;
 }
 
+
+/* Rimuove la versione dai file CSS e JS */
+function remove_cssjs_ver( $src ) {
+  if( strpos( $src, '?ver=' ) )
+    $src = remove_query_arg( 'ver', $src );
+  return $src;
+}
+add_filter( 'style_loader_src', 'remove_cssjs_ver', 1000 );
+add_filter( 'script_loader_src', 'remove_cssjs_ver', 1000 );
 // Update Body classes.
 // ***********************************************************
 

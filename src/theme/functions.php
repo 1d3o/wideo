@@ -15,7 +15,7 @@ require get_template_directory() . '/functions/custom-settings-wideo.php';
 require get_template_directory() . '/functions/require-plugins.php';
 
 // Set custom plugins settings.
-require get_template_directory() . '/functions/plugin-wideo-tpl.php';
-/* require get_template_directory() . '/functions/plugin-wideo-logger.php';
- */
-require get_template_directory() . '/functions/plugin-wideo-mailer.php';
+// require get_template_directory() . '/functions/plugin-wideo-tpl.php';
+// require get_template_directory() . '/functions/plugin-wideo-logger.php';
+// require get_template_directory() . '/functions/plugin-wideo-mailer.php';
+// require get_template_directory() . '/functions/plugin-woocommerce.php';
