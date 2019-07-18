@@ -27,6 +27,18 @@ remove_action('wp_head', 'parent_post_rel_link', 10, 0 ); // prev link
 remove_action('wp_head', 'start_post_rel_link', 10, 0 ); // start link
 add_filter('the_generator', '__return_false'); // remove the WordPress version from RSS feeds
 add_theme_support('automatic-feed-links' );
+add_filter( 'style_loader_src',  'sdt_remove_ver_css_js', 9999, 2 );
+add_filter( 'script_loader_src', 'sdt_remove_ver_css_js', 9999, 2 );
+
+function sdt_remove_ver_css_js( $src, $handle ) 
+{
+    $handles_with_version = [ 'style' ]; // <-- Adjust to your needs!
+
+    if ( strpos( $src, 'ver=' ) && ! in_array( $handle, $handles_with_version, true ) )
+        $src = remove_query_arg( 'ver', $src );
+
+    return $src;
+}
 
 // Update Body classes.
 // ***********************************************************
