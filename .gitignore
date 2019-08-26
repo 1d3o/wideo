@@ -1,5 +1,8 @@
 # Add any directories, files, or patterns you don't want to be tracked by version control
-/node_modules
-/dir-that-contains-wp-config/local-config.php
-
+node_modules
+*.log
 .DS_Store
+
+.wideo.json
+build
+assets/*

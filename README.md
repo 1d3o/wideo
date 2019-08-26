@@ -1,8 +1,6 @@
-# Wideo (ALPHA VERSION)
+# Wideo
 
 Wordpress starting framework for magic websites.
-
-The full documentation of the framework can be found here: https://ideonetwork.github.io/wideo
 
 ## Installation
 
@@ -15,19 +13,10 @@ yarn install
 npm run start
 ```
 
-## Development
-
-### Docsify documentation
-
-Install docsify as global node dependency
+## Build
 
 ```shell
-npm install -g docsify
+npm run build
 ```
 
-See documentation on local machine
-
-```shell
-docsify serve ./docs
-```
-
+The build process should create a **./build** directory with the official theme ready for production.
