@@ -21,18 +21,6 @@ npm run build
 
 The build process should create a **./build** directory with the official theme ready for production.
 
-## Development
+## Credits
 
-### Docsify documentation
-
-Install docsify as global node dependency
-
-```shell
-npm install -g docsify
-```
-
-See documentation on local machine
-
-```shell
-docsify serve ./docs
-```
+Powered by [ídeo](http://ideonetwork.it/)
