@@ -1,3 +1,7 @@
-body {
-  background-color: #eee;
-}
+@import "variables";
+
+// Override here variables for custom builds.
+
+@import "mixin";
+@import "normalizer";
+@import "base";

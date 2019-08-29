@@ -1,0 +1,13 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: $color_white;
+  color: $color_black;
+}
+
+header {
+  height: $size_header_height;
+}
