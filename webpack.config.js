@@ -29,9 +29,6 @@ module.exports = (env, args) => {
     if (!entry[key]) entry[key] = []
     entry[key].push(`./src/packs/${fileName}`)
   })
-  fs.readdirSync('./src/images').forEach((fileName) => {
-    entry[fileName] = `./src/images/${fileName}`
-  })
 
   // Define BrowserSyncPlugin
   if (isDev) plugins.push(new BrowserSyncPlugin(wideoConfig.browserSync))
@@ -54,43 +51,6 @@ module.exports = (env, args) => {
       })
     }
   })
-
-  // Define ruleImg
-  const ruleImg = {
-    test: /\.(jpe?g|png|gif|svg)$/i,
-    use: [
-      {
-        loader: 'file-loader',
-        options: {
-          name: '[name].[ext]'
-        }
-      },
-      {
-        loader: 'img-loader',
-        options: {
-          plugins: !isDev && [
-            require('imagemin-gifsicle')({
-              interlaced: false
-            }),
-            require('imagemin-mozjpeg')({
-              progressive: true,
-              arithmetic: false
-            }),
-            require('imagemin-pngquant')({
-              floyd: 0.5,
-              speed: 2
-            }),
-            require('imagemin-svgo')({
-              plugins: [
-                { removeTitle: true },
-                { convertPathData: false }
-              ]
-            })
-          ]
-        }
-      }
-    ]
-  }
 
   // Define ruleScss
   const ruleScss = {
@@ -164,7 +124,7 @@ module.exports = (env, args) => {
       path: path.resolve(__dirname, 'assets')
     },
     module: {
-      rules: [ruleImg, ruleFont, ruleScss, ruleJs]
+      rules: [ruleFont, ruleScss, ruleJs]
     },
     plugins: plugins
   }

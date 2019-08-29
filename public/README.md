@@ -1,4 +1,4 @@
-# Sources folder
+# Public folder
 
 Put here assets likes favicon, mobile devices icons ecc.
 
