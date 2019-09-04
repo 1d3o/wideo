@@ -3,7 +3,7 @@
 // Plugins
 require get_template_directory() . '/plugins/tgm.php';
 require get_template_directory() . '/plugins/wideo-tpl/tpl.php';
-// require get_template_directory() . '/plugins/wideo-mailer/mailer.php'; // WORK IN PROGRESS
+require get_template_directory() . '/plugins/wideo-mailer/mailer.php';
 
 // Backend
 // -> Update wordpress admin panel and options
@@ -26,6 +26,21 @@ function wideo_tpl_initialize() {
   return array(
     'contacts_email' => array(
       'label' => 'Indirizzo email di contatto'
+    )
+  );
+}
+
+// Initialize Wideo Mailer options
+// ***********************************************************
+
+function wideo_mailer_initialize() {
+  return array(
+    'contacts' => array(
+      'debug' => false,
+      'params' => ['name', 'surname', 'email', 'phone', 'object', 'message'],
+      'params_required' => ['name', 'surname', 'email'],
+      'mail_to' => 'test@mail.com',
+      'mail_subject' => 'New email from website'
     )
   );
 }
