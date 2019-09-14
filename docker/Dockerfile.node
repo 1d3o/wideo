@@ -1,0 +1,5 @@
+FROM node:latest
+
+RUN npm install -g yarn webpack-cli webpack
+COPY . /theme
+WORKDIR /theme

@@ -1,6 +1,5 @@
 const path = require('path')
 const fs = require('fs-extra')
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 
 module.exports = (env, args) => {
   // Generate Wideo config
@@ -8,13 +7,9 @@ module.exports = (env, args) => {
     const wideo = {
       ignoreFiles: [
         '.wideo.json', 'webpack.config.js', 'README.md', 'package.json', 'package-lock.json', 'yarn.lock', '.gitignore',
-        'src', 'build', 'node_modules', 'bower_components', '.git', 'docs'
-      ],
-      browserSync: {
-        host: 'localhost',
-        port: 3000,
-        proxy: 'http://localhost:8888'
-      }
+        'src', 'build', 'node_modules', 'bower_components', '.git', 'docs',
+        'docker-compose.yml', '.dockerignore', 'docker'
+      ]
     }
     fs.writeFileSync('./.wideo.json', JSON.stringify(wideo, null, 2), 'utf8')
   }
@@ -29,9 +24,6 @@ module.exports = (env, args) => {
     if (!entry[key]) entry[key] = []
     entry[key].push(`./src/packs/${fileName}`)
   })
-
-  // Define BrowserSyncPlugin
-  if (isDev) plugins.push(new BrowserSyncPlugin(wideoConfig.browserSync))
 
   // Define custom build plugin
   plugins.push({
