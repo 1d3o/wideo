@@ -1,7 +1,6 @@
 version: '3.7'
 
 services:
-  # Mysql database
   mysql:
     build:
       context: .
@@ -13,7 +12,6 @@ services:
       MYSQL_DATABASE: wordpress
       MYSQL_USER: wordpress
       MYSQL_PASSWORD: wordpress
-  # Node.js for assets compiler
   node:
     build:
       context: .
@@ -22,13 +20,22 @@ services:
     ports: [3001:80]
     volumes: [.:/theme]
     restart: always
-  # Wordpress
+  phpmyadmin:
+    depends_on: [mysql]
+    build:
+      context: .
+      dockerfile: ./docker/phpmyadmin.dockerfile
+    ports: [3002:80]
+    restart: always
+    environment:
+      PMA_HOST: mysql
+      MYSQL_ROOT_PASSWORD: root 
   wordpress:
     depends_on: [mysql]
     build:
       context: .
       dockerfile: ./docker/wordpress.dockerfile
-    ports: [3000:80]
+    ports: [3000:80, 443:443]
     volumes: [
       .:/var/www/html/wp-content/themes/theme,
       ./docker/wordpress/wp-content/uploads:/var/www/html/wp-content/uploads,
