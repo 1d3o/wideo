@@ -8,5 +8,6 @@ docker-compose*
 README.md
 LICENSE
 .vscode
+docs
 build
 docker/wordpress
