@@ -7,7 +7,7 @@ module.exports = (env, args) => {
     const wideo = {
       ignoreFiles: [
         '.wideo.json', 'webpack.config.js', 'README.md', 'package.json', 'package-lock.json', 'yarn.lock', '.gitignore',
-        'src', 'build', 'node_modules', 'bower_components', '.git', 'docs',
+        'src', 'build', 'node_modules', 'bower_components', '.git', 'docs', '.editorconfig',
         'docker-compose.yml', '.dockerignore', 'docker'
       ]
     }
