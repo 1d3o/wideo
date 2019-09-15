@@ -1,0 +1,5 @@
+#!/bin/sh
+
+cd /var/www/html/wp-content/plugins
+git clone https://github.com/wp-sync-db/wp-sync-db
+git clone https://github.com/wp-sync-db/wp-sync-db-media-files
