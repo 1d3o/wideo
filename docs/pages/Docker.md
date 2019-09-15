@@ -10,7 +10,9 @@ The docker integration offers:
 ## Configurations
 
 Wordpress host: **http://localhost:3000**
+
 Phpmyadmin host: **http://localhost:3002**
+
 Database root password: **root**
 
 ## Commands
