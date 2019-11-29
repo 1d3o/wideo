@@ -11,6 +11,7 @@ Run the following commands inside the wp-content/themes directory:
 ```shell
 git clone https://github.com/ideonetwork/wideo
 cd wideo
+npm install -g webpack-cli
 yarn install
 npm run start
 ```
