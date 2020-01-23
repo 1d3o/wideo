@@ -12,7 +12,6 @@ add_action('admin_menu', 'wideo_tpl_setup_menu');
 
 // Add menu voice.
 function wideo_tpl_setup_menu() {
-  add_menu_page( 'Settaggi', 'Settaggi', 'wideo-tpl-plugin', 'tpl', 'wideo_tpl_view', 'dashicons-admin-settings', 76 );
 
   // add user access
   $admins = get_role('administrator');
