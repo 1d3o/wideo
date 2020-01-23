@@ -1,0 +1,8 @@
+// Custom components:
+
+// Plugins fix:
+.wp-list-table.widefat.plugins tr[data-slug="quick-pagepost-redirect-plugin"] {
+  .dashicons {
+    display: none;
+  }
+}

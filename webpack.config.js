@@ -1,5 +1,11 @@
 const path = require('path')
 const fs = require('fs-extra')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+
+
+// CSS PLUGIN
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const autoprefixer = require('autoprefixer')
 
 module.exports = (env, args) => {
   // Generate Wideo config
@@ -26,71 +32,72 @@ module.exports = (env, args) => {
   })
 
   // Define custom build plugin
-  plugins.push({
-    apply: (compiler) => {
-      compiler.hooks.beforeCompile.tap('WideoCleanTheme', (params) => {
-        fs.removeSync('./build')
-      })
-      compiler.hooks.afterCompile.tap('WideoBuildTheme', (params) => {
-        if (!isDev) {
-          fs.mkdirSync('./build')
-          fs.readdirSync('./').forEach((fileName) => {
-            if (!wideoConfig.ignoreFiles.includes(fileName)) {
-              fs.copySync(`./${fileName}`, `./build/${fileName}`)
-            }
-          })
-        }
-      })
-    }
-  })
+    plugins.push({
+      apply: (compiler) => {
+        compiler.hooks.beforeCompile.tap('WideoCleanTheme', (params) => {
+          fs.removeSync('./build')
+        })
+        compiler.hooks.afterCompile.tap('WideoBuildTheme', (params) => {
+          if (!isDev) {
+            fs.mkdirSync('./build')
+            fs.readdirSync('./').forEach((fileName) => {
+              if (!wideoConfig.ignoreFiles.includes(fileName)) {
+                fs.copySync(`./${fileName}`, `./build/${fileName}`)
+              }
+            })
+          }
+        })
+      }
+    })
+  plugins.push(
+    new CopyWebpackPlugin([
+      { from: "src/images", to: "images", ignore: ['*.DS_Store'], },
+      { from: "src/fonts", to: "fonts", ignore: ['*.DS_Store'], }
+    ], {})
+  )
+  plugins.push(
+    new MiniCssExtractPlugin()
+  )
+
 
   // Define ruleScss
   const ruleScss = {
-    test: /\.(css|scss)/,
+    test: /\.s?css$/,
     use: [
-      {
-        loader: 'file-loader',
-        options: {
-          name: '[name].css'
-        }
-      },
-      {
-        loader: 'extract-loader',
-        options: {
-          sourceMap: isDev
-        }
-      },
+      MiniCssExtractPlugin.loader,
       {
         loader: 'css-loader',
         options: {
-          sourceMap: isDev
-        }
+          sourceMap: isDev,
+        },
       },
       {
+        ident: 'postcss',
         loader: 'postcss-loader',
         options: {
-          sourceMap: isDev,
-          plugins: () => [require('autoprefixer')]
-        }
+          plugins: () => [
+            autoprefixer(),
+          ],
+        },
       },
       {
         loader: 'sass-loader',
         options: {
-          sourceMap: isDev
-        }
-      }
+          sourceMap: isDev,
+        },
+      },
     ]
   }
 
   // Define ruleJs
   const ruleJs = {
-    test: /\.(js|jsx)/,
+    test: /\.js$/,
     exclude: /(node_modules|bower_components)/,
     use: {
       loader: 'babel-loader',
       options: {
-        presets: ['@babel/preset-env'],
-        plugins: []
+        presets: [["@babel/preset-env", { modules: false }]],
+        plugins: [['@babel/plugin-proposal-class-properties']]
       }
     }
   }
@@ -98,6 +105,8 @@ module.exports = (env, args) => {
   // Default ruleFont
   const ruleFont = {
     test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+    exclude: /images/,  /* dont want svg images from image folder to be included */
+
     use: [{
       loader: 'file-loader',
       options: {
@@ -107,16 +116,31 @@ module.exports = (env, args) => {
     }]
   }
 
+  const ruleSvg = {
+    test: /\.(svg)$/,
+    exclude: /fonts/, /* dont want svg fonts from fonts folder to be included */
+    use: [{
+      loader: 'file-loader',
+      options: {
+        name: '[name].[ext]',
+        outputPath: 'images/',
+      }
+    }]
+  }
+
   return {
+    devtool: 'cheap-module-eval-source-map',
+
     mode: args.mode,
     watch: isDev,
     entry: entry,
+    
     output: {
       filename: '[name].js',
       path: path.resolve(__dirname, 'assets')
     },
     module: {
-      rules: [ruleFont, ruleScss, ruleJs]
+      rules: [ruleFont, ruleScss, ruleJs, ruleSvg]
     },
     plugins: plugins
   }

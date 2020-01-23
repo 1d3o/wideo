@@ -18,6 +18,9 @@ require get_template_directory() . '/backend/menus.php';
 require get_template_directory() . '/backend/custom-posts.php';
 // -> Set TGM required plugins
 require get_template_directory() . '/backend/tgm.php';
+// -> Set TGM required plugins
+require get_template_directory() . '/backend/ACF.php';
+require get_template_directory() . '/backend/site-settings.php';
 
 // Initialize Wideo TPL options
 // ***********************************************************

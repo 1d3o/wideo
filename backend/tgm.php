@@ -23,12 +23,6 @@ function wideo_tgm_plugin(){
 			'external_url' => 'https://it.wordpress.org/plugins/wordpress-seo/'
 		),
 		array(
-			'name' => 'WP Fastest Cache',
-			'slug' => 'wp-fastest-cache',
-			'required' => false,
-			'external_url' => 'https://it.wordpress.org/plugins/wp-fastest-cache/'
-		),
-		array(
 			'name' => 'iThemes Security',
 			'slug' => 'better-wp-security',
 			'required' => false,

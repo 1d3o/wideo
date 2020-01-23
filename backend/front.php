@@ -5,13 +5,20 @@
 
 
 function wideo_deregister_scripts(){
-  wp_deregister_script( 'wp-embed' );
-  wp_deregister_script('jquery');
-
+  if ( !is_admin() ) {
+    wp_deregister_script('jquery');
+  }
+   
 }
 function wideo_deregister_styles() {
     wp_dequeue_style( 'wp-block-library' );
 }
+
+function disable_embed(){
+  wp_dequeue_script( 'wp-embed' );
+}
+  
+add_action( 'wp_footer', 'disable_embed' );
 
 add_action( 'wp_enqueue_scripts', 'wideo_deregister_scripts' );
 add_action( 'wp_print_styles', 'wideo_deregister_styles', 100 );
@@ -19,13 +26,17 @@ add_action( 'wp_print_styles', 'wideo_deregister_styles', 100 );
 
 // Load scripts on theme.
 // ***********************************************************
-
+function remove_cssjs_ver( $src ) {
+  if( strpos( $src, '?ver=' ) )
+   $src = remove_query_arg( 'ver', $src );
+  return $src;
+}
 
 function wideo_enqueue_scripts() {
   $template_directory = get_template_directory_uri();
   // include custom jQuery
 
-    wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', array(), null, true);
+    wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js', array(), null, true);
     wp_enqueue_script('application', $template_directory. '/assets/application.js', '', '1.0.0', true);
     wp_enqueue_style('application', $template_directory.'/assets/application.css');
 
@@ -50,6 +61,11 @@ remove_action('wp_head', 'start_post_rel_link', 10, 0); // start link
 remove_action('wp_head', 'rest_output_link_wp_head' );
 remove_action('wp_head', 'wp_oembed_add_discovery_links' );
 remove_action('template_redirect', 'rest_output_link_header', 11 );
+
+add_filter( 'style_loader_src', 'remove_cssjs_ver', 10, 2 );
+add_filter( 'script_loader_src', 'remove_cssjs_ver', 10, 2 );
+add_filter('xmlrpc_enabled', '__return_false');
+
 function disable_emojis() {
   remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
   remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
@@ -158,3 +174,22 @@ function wideo_remove_classes_from_thumbnails($output) {
   return $output;
 }
 add_filter('post_thumbnail_html', 'wideo_remove_classes_from_thumbnails');
+
+// Disable Self Pingback
+
+// ***********************************************************
+
+function disable_pingback( &$links ) {
+  foreach ( $links as $l => $link )
+  if ( 0 === strpos( $link, get_option( 'home' ) ) )
+  unset($links[$l]);
+ }
+ add_action( 'pre_ping', 'disable_pingback' );
+ 
+ function wpdocs_dequeue_dashicon() {
+  if (current_user_can( 'update_core' )) {
+      return;
+  }
+  wp_deregister_style('dashicons');
+}
+add_action( 'wp_enqueue_scripts', 'wpdocs_dequeue_dashicon' );

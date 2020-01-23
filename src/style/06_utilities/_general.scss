@@ -1,0 +1,68 @@
+/* Utility classes */
+
+.u-button-content {
+  padding: 15px 0;
+}
+
+.u-no-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.u-text-center {
+  text-align: center;
+}
+
+.u-text-right {
+  text-align: right !important;
+}
+
+.u-text-uppercase {
+  text-transform: uppercase !important;
+}
+
+.u-ov-hidden {
+  overflow: hidden;
+}
+
+.u-visual-hide {
+  @include visual-hide();
+}
+.background--cover {
+  background-size: cover;
+  background-position: center;
+}
+.container {
+	max-width: 1240px;
+  margin: 0 auto;
+  @media screen and (max-width:1300px) {
+    max-width: calc(100% - 60px);
+  }
+
+}
+
+.container__inner {
+	max-width: 1080px;
+  margin: 0 auto;
+  @media screen and (max-width:1200px) {
+   max-width: 90%;
+  }
+}
+
+
+
+.column__half {
+  @include column(1/2);
+
+}
+.column__half-nopadding {
+  @include span(1/2);
+  @media screen and (max-width:768px) {
+    width: 100%;
+    padding: 30px;
+  
+  }
+
+}
+
