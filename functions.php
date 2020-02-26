@@ -2,7 +2,6 @@
 
 // Plugins
 require get_template_directory() . '/plugins/tgm.php';
-require get_template_directory() . '/plugins/wideo-tpl/tpl.php';
 require get_template_directory() . '/plugins/wideo-mailer/mailer.php';
 
 // Backend
@@ -21,17 +20,6 @@ require get_template_directory() . '/backend/tgm.php';
 // -> Set TGM required plugins
 require get_template_directory() . '/backend/ACF.php';
 require get_template_directory() . '/backend/site-settings.php';
-
-// Initialize Wideo TPL options
-// ***********************************************************
-
-function wideo_tpl_initialize() {
-  return array(
-    'contacts_email' => array(
-      'label' => 'Indirizzo email di contatto'
-    )
-  );
-}
 
 // Initialize Wideo Mailer options
 // ***********************************************************
