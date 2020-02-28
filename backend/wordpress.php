@@ -82,3 +82,16 @@ function wideo_hide_bar_logo( $wp_admin_bar ) {
   $wp_admin_bar->remove_menu('wp-logo');
 }
 add_action('admin_bar_menu', 'wideo_hide_bar_logo', 11);
+
+/***** Setta le dimensioni delle thumbnail di default *****/
+update_option( 'thumbnail_size_w', 150 );
+update_option( 'thumbnail_size_h', 150 );
+
+update_option( 'medium_size_w', 560 );
+update_option( 'medium_size_h', 400 );
+
+update_option( 'medium_large_size_w', 0 );
+update_option( 'medium_large_size_h', 0 );
+
+update_option( 'large_size_w', 1920 );
+update_option( 'large_size_h', 1280 );
