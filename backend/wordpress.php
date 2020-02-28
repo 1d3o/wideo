@@ -32,14 +32,20 @@ add_theme_support('post-thumbnails');
 
 show_admin_bar(false);
 
-// Disable gutenberg editor.
-// ***********************************************************
 
-// disable for posts and pages
+/*** RIMOZIONE GUTEMBERG **/
+// disable Gutenberg for posts
 add_filter('use_block_editor_for_post', '__return_false', 10);
 
-// disable for post types
+// disable Gutenberg for post types
 add_filter('use_block_editor_for_post_type', '__return_false', 10);
+
+// remove Gutemberg CSS
+add_action( 'wp_print_styles', 'wps_deregister_styles', 100 );
+function wps_deregister_styles() {
+    wp_dequeue_style( 'wp-block-library' );
+}
+
 
 // Dashboard widgets.
 // ***********************************************************
