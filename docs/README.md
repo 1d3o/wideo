@@ -23,4 +23,4 @@ The build process should create a **./build** directory with the official theme 
 
 ## Credits
 
-Powered by [ídeo](http://ideonetwork.it/)
+Powered by [ídeo](http://1d3o.it/)
