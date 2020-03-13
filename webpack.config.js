@@ -39,7 +39,7 @@ module.exports = (env, args) => {
         })
         compiler.hooks.afterCompile.tap('WideoBuildTheme', (params) => {
           if (!isDev) {
-            fs.mkdirSync('./build')
+            try { fs.mkdirSync('./build') } catch(e) {}
             fs.readdirSync('./').forEach((fileName) => {
               if (!wideoConfig.ignoreFiles.includes(fileName)) {
                 fs.copySync(`./${fileName}`, `./build/${fileName}`)
@@ -145,3 +145,4 @@ module.exports = (env, args) => {
     plugins: plugins
   }
 }
+
