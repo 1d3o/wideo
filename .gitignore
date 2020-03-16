@@ -2,6 +2,6 @@ node_modules
 *.log
 .DS_Store
 .wideo.json
+assets
 build
-assets/*
 docker/wordpress

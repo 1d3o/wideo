@@ -22,7 +22,11 @@ function component ($name = '', $args = array()) {
   global $globals, $common_config, $components_config;
   if ($name) {
     extract($globals);
-    extract(array_merge($components_config[$name], $common_config, $args));
+    if (isset($components_config[$name])) {
+      extract(array_merge($components_config[$name], $common_config, $args));
+    } else {
+      extract(array_merge($common_config, $args));
+    }
     include(locate_template("partials/components/_$name.php"));
   }
 }

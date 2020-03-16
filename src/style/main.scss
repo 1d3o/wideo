@@ -1,45 +1,36 @@
-// 01 - Settings
+// Settings
 // ==========================================================================
 @import "01_settings/config";
 
-// 02 - Tools
+// Mixins
 // ==========================================================================
-@import "02_tools/_get-maps.scss";
-@import "02_tools/layout.scss";
-@import "02_tools/typography.scss";
-@import "02_tools/quantity-queries.scss";
-@import "02_tools/child.scss";
-@import "02_tools/media-queries.scss";
-@import "02_tools/jeet/_index.scss";
+@import "02_mixins/get-maps";
+@import "02_mixins/media-queries";
+@import "02_mixins/misc";
 
-// 03 - Elements
+// Base
 // ==========================================================================
-@import "03_elements/_reset.scss";
-@import "03_elements/_base.scss";
-@import "03_elements/_typography.scss";
-@import "03_elements/_media.scss";
+@import "03_base/reset";
+@import "03_base/fonts";
+@import "03_base/base";
 
-// 04 - Objects
+// Atoms
 // ==========================================================================
-@import "04_objects/_layouts.scss";
-@import "04_objects/_list.scss";
+@import "04_atoms/bg-media";
+@import "04_atoms/button";
+@import "04_atoms/input";
+@import "04_atoms/layout";
+@import "04_atoms/placeholder";
 
-// 05 - Components
+// Components
 // ==========================================================================
+@import "05_components/footer";
+@import "05_components/nav";
 
-@import "05_components/_button.scss";
-@import "05_components/_footer.scss";
-@import "05_components/_nav.scss";
-@import "05_components/_form.scss";
-
-
-// 06 - Utilities
+// Pages
 // ==========================================================================
-@import "06_utilities/_animations.scss";
-@import "06_utilities/_general.scss";
-@import "06_utilities/_display.scss";
-@import "06_utilities/_print.scss";
+@import "06_pages/home";
 
-// BONUS - Shame
+// SHAME
 // ==========================================================================
 @import "shame";
