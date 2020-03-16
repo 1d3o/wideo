@@ -70,7 +70,11 @@
 <!-- Application helpers -->
 <meta name="wideo_template_uri" content="<?php echo get_template_directory_uri(); ?>">
 
+<?php partial('head-scripts'); ?>
+
 <?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?> itemscope="itemscope" itemtype="http://schema.org/WebPage">
+
+  <?php partial('nav'); ?>
