@@ -5,6 +5,10 @@
     @include size(100%);
   }
 
+  picture {
+    display: flex;
+  }
+
   picture,
   video {
     position: absolute;
