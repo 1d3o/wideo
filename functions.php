@@ -10,6 +10,7 @@ require get_template_directory() . '/php-util/partial.php';
 require get_template_directory() . '/php-util/icon.php';
 require get_template_directory() . '/php-util/picture.php';
 require get_template_directory() . '/php-util/components.php';
+require get_template_directory() . '/php-util/menus.php';
 
 // Plugins (plugin custom del tema)
 require get_template_directory() . '/plugins/tgm.php';
