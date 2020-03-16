@@ -17,7 +17,7 @@ require get_template_directory() . '/plugins/wideo-mailer/mailer.php';
 
 // Backend (configurazione wordpress)
 // -> Update wordpress admin panel and options
-require get_template_directory() . '/backend/wordpress.php';
+require get_template_directory() . '/backend/backend.php';
 // -> Update wordpress front-end management
 require get_template_directory() . '/backend/front.php';
 // -> Update wordpress users and capabilities

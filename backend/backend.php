@@ -108,3 +108,54 @@ update_option( 'medium_large_size_h', 0 );
 
 update_option( 'large_size_w', 1920 );
 update_option( 'large_size_h', 1280 );
+
+// Remove dashboard
+// ***********************************************************
+
+// redirect (when user goes to domain.com/wp-admin)
+function dashboard_redirect () {
+  wp_redirect(admin_url('edit.php?post_type=page'));
+}
+add_action('load-index.php', 'dashboard_redirect');
+
+// redirect when logged
+function login_redirect ($redirect_to, $request, $user) {
+  return admin_url('edit.php?post_type=page');
+}
+add_filter('login_redirect', 'login_redirect', 10, 3);
+
+// remove dashboard from menu
+function remove_menus () {
+  global $menu;
+  $restricted = array(__('Dashboard'), __('Comments'));
+  //$restricted = array(__('Dashboard'), __('Posts'), __('Media'), __('Links'), __('Pages'), __('Appearance'), __('Tools'), __('Users'), __('Settings'), __('Comments'), __('Plugins'));
+  end($menu);
+  while(prev($menu)){
+    $value = explode(' ', $menu[key($menu)][0]);
+    if (in_array($value[0] != NULL ? $value[0] : '', $restricted)) {
+      unset($menu[key($menu)]);
+    }
+  }
+}
+add_action('admin_menu', 'remove_menus');
+
+// Remove comments
+// ***********************************************************
+
+function disable_comments () {
+  global $pagenow;
+  
+  if ($pagenow === 'edit-comments.php') {
+    wp_redirect(admin_url('edit.php?post_type=page'));
+    exit;
+  }
+
+  // Disable support for comments and trackbacks in post types
+  foreach (get_post_types() as $post_type) {
+    if (post_type_supports($post_type, 'comments')) {
+      remove_post_type_support($post_type, 'comments');
+      remove_post_type_support($post_type, 'trackbacks');
+    }
+  }
+}
+add_action('admin_init', 'disable_comments');
