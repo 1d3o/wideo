@@ -1,6 +1,17 @@
 <?php
 
-require_once 'config.php';
+/**
+ * FUNZIONE PER RECUPERO COMPONENTI DINAMICHE.
+ * Mettere le componenti in /partials/components.
+ * Richiamare le componenti con <php icon('nome-componente', array('config1' => 'value')); ?>
+ */
+
+$components_config = array(
+  'hero' => array(
+    'title' => '',
+    'image' => NULL
+  )
+);
 
 $common_config = array(
   'class' => '',
@@ -15,5 +26,3 @@ function component ($name = '', $args = array()) {
     include(locate_template("partials/components/_$name.php"));
   }
 }
-
-?>

@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * PERSONALIZZAZIONE WORDPRESS.
+ * Questo file imposta sutte le settings di base di wordpress.
+ */
+
 // Disactive wp updates.
 // ***********************************************************
 
@@ -77,7 +82,7 @@ add_action('wp_dashboard_setup', 'wideo_set_dashboard_widgets');
 // ***********************************************************
 
 function wideo_add_dashboard_footer_text () { 
-  echo 'Powered by <a href="http://www.ideonetwork.it" target="_blank">ídeo</a>'; 
+  echo 'Powered by <a href="http://www.1d3o.it" target="_blank">ídeo</a>'; 
 } 
 add_filter('admin_footer_text', 'wideo_add_dashboard_footer_text');
 
@@ -89,7 +94,9 @@ function wideo_hide_bar_logo( $wp_admin_bar ) {
 }
 add_action('admin_bar_menu', 'wideo_hide_bar_logo', 11);
 
-/***** Setta le dimensioni delle thumbnail di default *****/
+// Set thumbnail default sizes.
+// ***********************************************************
+
 update_option( 'thumbnail_size_w', 150 );
 update_option( 'thumbnail_size_h', 150 );
 

@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * GESTIONE PLUGIN DI DEFAULT.
+ * Attraverso il plugin TGM vengono impostati i plugin obbligatori e suggeriti dal tema.
+ */
+
 function wideo_tgm_plugin(){
 	$plugins = array(
 		array(
@@ -40,6 +45,8 @@ function wideo_tgm_plugin(){
 			'required' => false,
 			'external_url' => 'https://it.wordpress.org/plugins/wp-mail-smtp/'
 		),
+
+		// COMPILE_CODE_HERE: aggiungere eventuali plugin suggeriti o obbligatori
 	);
 
 	$config = array(

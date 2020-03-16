@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * IMPOSTAZIONE VARIABILI GLOBALI DISPONIBILI SU TUTTI I FILE DEL SITO.
+ */
+
 global $globals;
 
 $globals = array(
@@ -8,5 +12,3 @@ $globals = array(
 );
 
 extract($globals);
-
-?>

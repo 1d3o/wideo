@@ -1,5 +1,20 @@
 <?php
 
+/**
+ * GESTIONE TAG IMMAGINI.
+ * Funzione per la visualizzazione di immagini.
+ * Opzioni:
+ * - src {string/array} -> url immagine / array
+ * 
+ * Esempio:
+ * picture(array(
+ *    'src' => array(
+ *        '200' => 'http://domain.com/image-150-150px.jpg'
+ *        'other' => 'http://domain.com/image-full.jpg'
+ *    )
+ * ))
+ */
+
 function picture ($options = array(), $echo = TRUE) {
   $defaults = array(
     'src' => '',

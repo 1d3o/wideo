@@ -1,15 +1,21 @@
 <?php
 
-// Global variables
+// Requires
 // ***********************************************************
 
+// PHP-Util (singole funzioni utili utilizzabili per lo sviluppo)
 require get_template_directory() . '/php-util/variables.php';
+require get_template_directory() . '/php-util/logJs.php';
+require get_template_directory() . '/php-util/partial.php';
+require get_template_directory() . '/php-util/icon.php';
+require get_template_directory() . '/php-util/picture.php';
+require get_template_directory() . '/php-util/components.php';
 
-// Plugins
+// Plugins (plugin custom del tema)
 require get_template_directory() . '/plugins/tgm.php';
 require get_template_directory() . '/plugins/wideo-mailer/mailer.php';
 
-// Backend
+// Backend (configurazione wordpress)
 // -> Update wordpress admin panel and options
 require get_template_directory() . '/backend/wordpress.php';
 // -> Update wordpress front-end management
@@ -22,17 +28,8 @@ require get_template_directory() . '/backend/menus.php';
 require get_template_directory() . '/backend/custom-posts.php';
 // -> Set TGM required plugins
 require get_template_directory() . '/backend/tgm.php';
-// -> Set TGM required plugins
+// -> Import ACF
 require get_template_directory() . '/backend/ACF.php';
-require get_template_directory() . '/backend/site-settings.php';
-
-// PHP util
-// ***********************************************************
-
-require get_template_directory() . '/php-util/logJs.php';
-require get_template_directory() . '/php-util/partial.php';
-require get_template_directory() . '/php-util/icon.php';
-require get_template_directory() . '/php-util/picture.php';
 
 // Initialize Wideo Mailer options
 // ***********************************************************

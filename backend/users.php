@@ -1,22 +1,35 @@
 <?php
 
-function wideo_add_complete_access_to_to_cpt($singular, $plural, $role) {
-  $admins = get_role($role);
+/**
+ * GESTIONE UTENZE.
+ * Questo file imposta sutte le settings degli utenti con accesso al pannello di admin.
+ * Di principio vengono eliminati tutti i ruoli di default di Wordpress ad eccezione dell'amministratore
+ * e viene creato un ruolo "client" da fornire al cliente.
+ */
 
-  $admins->add_cap('read_'.$singular);
-  $admins->add_cap('edit_'.$singular);
-  $admins->add_cap('delete_'.$singular);
-  $admins->add_cap('read_private_'.$plural); 
-  $admins->add_cap('publish_'.$plural); 
-  $admins->add_cap('edit_'.$plural); 
-  $admins->add_cap('edit_others_'.$plural); 
-  $admins->add_cap('edit_published_'.$plural);
-  $admins->add_cap('edit_private_'.$plural); 
-  $admins->add_cap('delete_'.$plural); 
-  $admins->add_cap('delete_others_'.$plural); 
-  $admins->add_cap('delete_published_'.$plural);
-  $admins->add_cap('delete_private_'.$plural); 
+// Funzione per aggiungere ad un ruolo utente i permessi di accesso ad un custom post type.
+// ***********************************************************
+
+function wideo_add_complete_access_to_to_cpt($singular, $plural, $role) {
+  $users = get_role($role);
+
+  $users->add_cap('read_'.$singular);
+  $users->add_cap('edit_'.$singular);
+  $users->add_cap('delete_'.$singular);
+  $users->add_cap('read_private_'.$plural); 
+  $users->add_cap('publish_'.$plural); 
+  $users->add_cap('edit_'.$plural); 
+  $users->add_cap('edit_others_'.$plural); 
+  $users->add_cap('edit_published_'.$plural);
+  $users->add_cap('edit_private_'.$plural); 
+  $users->add_cap('delete_'.$plural); 
+  $users->add_cap('delete_others_'.$plural); 
+  $users->add_cap('delete_published_'.$plural);
+  $users->add_cap('delete_private_'.$plural); 
 }
+
+// Funzione principale che modifica i ruoli degli utenti
+// ***********************************************************
 
 function wideo_edit_built_in_roles() {
   // remove default roles
@@ -27,6 +40,8 @@ function wideo_edit_built_in_roles() {
       $wp_roles->remove_role($role);
     }
   }
+  // add cpt access to admin
+  wideo_add_complete_access_to_to_cpt('cpt', 'cpts', 'administrator');
 
   // add custom client role
   $wp_roles->add_role(
@@ -66,26 +81,13 @@ function wideo_edit_built_in_roles() {
       'delete_posts' => false,
       'delete_others_posts'	=> false,
       'delete_published_posts'	=> false,
-      'delete_private_posts'	=> false,
-
-      // cpts -> basic custom post types
-      'read_cpt' => true,
-      'edit_cpt'	=> true,
-      'delete_cpt'	=> true,
-      'read_private_cpts' => true,
-      'publish_cpts'	=> true,
-      'edit_cpts' => true,
-      'edit_others_cpts'	=> true,
-      'edit_published_cpts' => true,
-      'edit_private_cpts' => true,
-      'delete_cpts' => true,
-      'delete_others_cpts'	=> true,
-      'delete_published_cpts'	=> true,
-      'delete_private_cpts'	=> true,
+      'delete_private_posts'	=> false
     )
   );
+  wideo_add_complete_access_to_to_cpt('cpt', 'cpts', 'client');
 
-  wideo_add_complete_access_to_to_cpt('cpt', 'cpts', 'administrator');
+  // COMPILE_CODE_HERE: aggiungere eventuali ruoli copiando il codice utilizzato sopra per il ruolo "client"
 }
+
 add_action('admin_menu', 'wideo_edit_built_in_roles');
  

@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Wideo Mailer
-Plugin URI: http://www.ideonetwork.it/
+Plugin URI: http://www.1d3o.it/
 Description: Manage contacts requests and emails from custom forms.
 Version: 1.0
 Author: ídeo SRL
-Author URI: http://www.ideonetwork.it/
+Author URI: http://www.1d3o.it/
 */
 
 add_action('admin_menu', 'wideo_mailer_setup_menu');

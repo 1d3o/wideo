@@ -1,8 +1,12 @@
 <?php
 
+/**
+ * IMPOSTAZIONI FRONT-END.
+ * Gestisce tutte le impostazioni che vanno a modificare il front-end del sito.
+ */
+
 // Remove script and styles
 // ***********************************************************
-
 
 function wideo_deregister_scripts(){
   if ( !is_admin() ) {
@@ -34,13 +38,12 @@ function remove_cssjs_ver( $src ) {
 
 function wideo_enqueue_scripts() {
   $template_directory = get_template_directory_uri();
-  // include custom jQuery
-
+    // include custom jQuery
     wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js', array(), null, true);
     wp_enqueue_script('application', $template_directory. '/assets/application.js', '', '1.0.0', true);
     wp_enqueue_style('application', $template_directory.'/assets/application.css');
 
-    // NOTE: Add here other bundles for pages
+    // COMPILE_CODE_HERE: aggiungere eventuali script da richiamare sul front o su specifiche pagine
 }
 
 add_action('wp_enqueue_scripts', 'wideo_enqueue_scripts');
@@ -66,6 +69,9 @@ add_filter( 'style_loader_src', 'remove_cssjs_ver', 10, 2 );
 add_filter( 'script_loader_src', 'remove_cssjs_ver', 10, 2 );
 add_filter('xmlrpc_enabled', '__return_false');
 
+// Disable support to emoji.
+// ***********************************************************
+
 function disable_emojis() {
   remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
   remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
@@ -79,37 +85,21 @@ function disable_emojis() {
 }
 add_action( 'init', 'disable_emojis' );
 
-
-/**
- * Filter function used to remove the tinymce emoji plugin.
- * 
- * @param array $plugins 
- * @return array Difference betwen the two arrays
- */
 function disable_emojis_tinymce( $plugins ) {
   if ( is_array( $plugins ) ) {
-  return array_diff( $plugins, array( 'wpemoji' ) );
+    return array_diff( $plugins, array( 'wpemoji' ) );
   } else {
-  return array();
+    return array();
   }
- }
- 
- /**
-  * Remove emoji CDN hostname from DNS prefetching hints.
-  *
-  * @param array $urls URLs to print for resource hints.
-  * @param string $relation_type The relation type the URLs are printed for.
-  * @return array Difference betwen the two arrays.
-  */
- function disable_emojis_remove_dns_prefetch( $urls, $relation_type ) {
+}
+
+function disable_emojis_remove_dns_prefetch( $urls, $relation_type ) {
   if ( 'dns-prefetch' == $relation_type ) {
-  /** This filter is documented in wp-includes/formatting.php */
-  $emoji_svg_url = apply_filters( 'emoji_svg_url', 'https://s.w.org/images/core/emoji/2/svg/' );
- 
- $urls = array_diff( $urls, array( $emoji_svg_url ) );
+    $emoji_svg_url = apply_filters( 'emoji_svg_url', 'https://s.w.org/images/core/emoji/2/svg/' );
+    $urls = array_diff( $urls, array( $emoji_svg_url ) );
   }
  
- return $urls;
+  return $urls;
 }
 
 // Update Body classes.
@@ -176,7 +166,6 @@ function wideo_remove_classes_from_thumbnails($output) {
 add_filter('post_thumbnail_html', 'wideo_remove_classes_from_thumbnails');
 
 // Disable Self Pingback
-
 // ***********************************************************
 
 function disable_pingback( &$links ) {
