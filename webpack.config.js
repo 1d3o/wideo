@@ -1,13 +1,11 @@
 const path = require('path')
 const fs = require('fs-extra')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-
-
-// CSS PLUGIN
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const autoprefixer = require('autoprefixer')
 
 module.exports = (env, args) => {
+
   // Generate Wideo config
   if (!fs.existsSync('./.wideo.json')) {
     const wideo = {
@@ -32,29 +30,32 @@ module.exports = (env, args) => {
   })
 
   // Define custom build plugin
-    plugins.push({
-      apply: (compiler) => {
-        compiler.hooks.beforeCompile.tap('WideoCleanTheme', (params) => {
-          fs.removeSync('./build')
-        })
-        compiler.hooks.afterCompile.tap('WideoBuildTheme', (params) => {
-          if (!isDev) {
-            try { fs.mkdirSync('./build') } catch(e) {}
-            fs.readdirSync('./').forEach((fileName) => {
-              if (!wideoConfig.ignoreFiles.includes(fileName)) {
-                fs.copySync(`./${fileName}`, `./build/${fileName}`)
-              }
-            })
-          }
-        })
-      }
-    })
+  // - create/detroy build path plugin
+  plugins.push({
+    apply: (compiler) => {
+      compiler.hooks.beforeCompile.tap('WideoCleanTheme', (params) => {
+        fs.removeSync('./build')
+      })
+      compiler.hooks.afterCompile.tap('WideoBuildTheme', (params) => {
+        if (!isDev) {
+          try { fs.mkdirSync('./build') } catch(e) {}
+          fs.readdirSync('./').forEach((fileName) => {
+            if (!wideoConfig.ignoreFiles.includes(fileName)) {
+              fs.copySync(`./${fileName}`, `./build/${fileName}`)
+            }
+          })
+        }
+      })
+    }
+  })
+  // - copy webpack plugin for fonts and images
   plugins.push(
     new CopyWebpackPlugin([
       { from: "src/images", to: "images", ignore: ['*.DS_Store'], },
       { from: "src/fonts", to: "fonts", ignore: ['*.DS_Store'], }
     ], {})
   )
+  // - mini css extract plugin
   plugins.push(
     new MiniCssExtractPlugin()
   )
@@ -116,6 +117,7 @@ module.exports = (env, args) => {
     }]
   }
 
+  // Default ruleSvg
   const ruleSvg = {
     test: /\.(svg)$/,
     exclude: /fonts/, /* dont want svg fonts from fonts folder to be included */
@@ -128,8 +130,9 @@ module.exports = (env, args) => {
     }]
   }
 
+  // Final return
   return {
-    devtool: 'cheap-module-eval-source-map',
+    devtool: isDev ? 'cheap-module-eval-source-map' : false,
 
     mode: args.mode,
     watch: isDev,
@@ -144,5 +147,5 @@ module.exports = (env, args) => {
     },
     plugins: plugins
   }
-}
 
+}
