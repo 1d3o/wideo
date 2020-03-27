@@ -26,6 +26,7 @@ add_action( 'wp_footer', 'disable_embed' );
 
 add_action( 'wp_enqueue_scripts', 'wideo_deregister_scripts' );
 add_action( 'wp_print_styles', 'wideo_deregister_styles', 100 );
+add_theme_support( 'title-tag' );
 
 
 // Load scripts on theme.
