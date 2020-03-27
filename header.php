@@ -3,7 +3,6 @@
 <head itemscope itemtype="http://schema.org/WebSite">
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title><?php bloginfo('name'); ?> - <?php is_front_page() ? bloginfo('description') : wp_title(''); ?></title>
 
 <!-- Name of web application (only should be used if the website is used as an app) -->
 <meta name="application-name" content="<?php bloginfo('name'); ?>">
