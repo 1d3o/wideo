@@ -58,7 +58,6 @@ foreach ($PARAMS_REQUIRED as $parameter) {
 }
 
 // Prepare email data.
-$subject = 'New contact request from website';
 $message = '';
 foreach ($PARAMS as $parameter) {
   $value = isset($_POST[$parameter]) ? $_POST[$parameter] : '';
