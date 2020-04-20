@@ -43,7 +43,7 @@ class Collector {
 
   call (name, funcName, ...args) {
     const instance = this.get(name)
-    instance && instance[funcName] && instance[funcName](...args)
+    return instance && instance[funcName] && instance[funcName](...args)
   }
 }
 
