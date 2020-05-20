@@ -19,6 +19,7 @@ $prefix = 'site-settings';
 // ***********************************************************
 
 function wideo_register_field_group() {
+    global $prefix;
     acf_add_local_field_group([
         'key' => 'group_settings_' . $prefix,
         'title' => 'Site Settings',
