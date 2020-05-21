@@ -8,7 +8,7 @@
 // Funzione per la registrazione di un nuovo CPT
 // ***********************************************************
 
-function wideo_register_post_type($name, $singular, $multiple, $slug, $args = []) {
+function wideo_register_post_type($name, $singular, $multiple, $slug, $icon, $args = []) {
   $defaults = [
     'labels' => [
       'name' => $multiple,
@@ -48,7 +48,7 @@ function wideo_register_post_type($name, $singular, $multiple, $slug, $args = []
     'show_in_rest' => true,
     'hierarchical' => false,
     'menu_position' => 20,
-    'menu_icon' => 'dashicons-palmtree',
+    'menu_icon' => $icon,
     'supports' => [
       'title',
       'editor',
@@ -121,7 +121,7 @@ function wideo_register_taxonomy($name, $singular, $multiple, $slug, $postTypes 
 // ***********************************************************
 
 function wideo_register_cpt_and_tax() {
-  // wideo_register_post_type('service', 'Servizio', 'Servizi', 'service');
+  // wideo_register_post_type('service', 'Servizio', 'Servizi', 'nome-icona', 'service');
   // wideo_register_taxonomy('category-service', 'Categoria servizio', 'Categorie servizio', 'Categoria servizio', ['service']);
 
   // COMPILE_CODE_HERE: aggiungere registrazione di eventuali custom post type
