@@ -22,10 +22,10 @@ function wideo_tgm_plugin(){
 			'external_url' => 'https://github.com/wp-sync-db/wp-sync-db-media-files'
 		),
 		array(
-			'name' => 'Yoast SEO',
-			'slug' => 'wordpress-seo',
+			'name' => 'RankMath',
+			'slug' => 'seo-by-rank-math',
 			'required' => false,
-			'external_url' => 'https://it.wordpress.org/plugins/wordpress-seo/'
+			'external_url' => 'https://it.wordpress.org/plugins/seo-by-rank-math/'
 		),
 		array(
 			'name' => 'iThemes Security',
