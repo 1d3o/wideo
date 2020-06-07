@@ -137,7 +137,7 @@ add_filter('post_thumbnail_html', 'wideo_remove_autoclosing_tags'); // <img />
 function wideo_clean_menus_classes($var) {
   // remove all classes except the array list
   return is_array($var) ? array_intersect($var, array( 
-    'c-navbar__item',
+    'nav__item',
     'current_page_item',
     'current_page_parent',
     'current_page_ancestor',
@@ -152,7 +152,7 @@ add_filter('page_css_class', 'wideo_clean_menus_classes');
 // **********************************************************************
 
 function wideo_add_custom_menus_classes($classes, $item, $args) {
-  $classes[] = 'c-navbar__item';
+  $classes[] = 'nav__item';
   return $classes;
 }
 add_filter('nav_menu_css_class','wideo_add_custom_menus_classes', 1, 3);
