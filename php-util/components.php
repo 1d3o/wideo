@@ -3,7 +3,7 @@
 /**
  * FUNZIONE PER RECUPERO COMPONENTI DINAMICHE.
  * Mettere le componenti in /partials/components.
- * Richiamare le componenti con <php icon('nome-componente', array('config1' => 'value')); ?>
+ * Richiamare le componenti con <php component('nome-componente', array('config1' => 'value')); ?>
  */
 
 $components_config = array(
