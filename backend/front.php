@@ -141,7 +141,8 @@ function wideo_clean_menus_classes($var) {
     'current_page_item',
     'current_page_parent',
     'current_page_ancestor',
-    'current-menu-item'
+    'current-menu-item',
+    'menu-item-has-children'
   )) : '';
 }
 add_filter('nav_menu_css_class', 'wideo_clean_menus_classes');
