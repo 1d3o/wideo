@@ -172,7 +172,7 @@ add_filter('post_thumbnail_html', 'wideo_remove_classes_from_thumbnails');
 
 function disable_pingback( &$links ) {
   foreach ( $links as $l => $link )
-  if ( 0 === strpos( $link, get_option( 'home' ) ) )
+  if ( 0 === strpos( $link, home_url() ) )
   unset($links[$l]);
  }
  add_action( 'pre_ping', 'disable_pingback' );
