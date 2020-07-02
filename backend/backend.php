@@ -32,10 +32,6 @@ add_post_type_support('page', 'excerpt');
 
 add_theme_support('post-thumbnails');
 
-// Hide admin bar on site view.
-// ***********************************************************
-
-show_admin_bar(false);
 
 
 /*** RIMOZIONE GUTEMBERG **/
