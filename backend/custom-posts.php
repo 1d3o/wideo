@@ -87,7 +87,7 @@ function wideo_register_taxonomy($name, $singular, $multiple, $slug, $postTypes 
     'labels' => [
       'name' => $multiple,
       'singular_name' => $singular,
-      'menu_name' => $singular,
+      'menu_name' => $multiple,
       'all_items' => 'Tutti i ' . $singular,
       'edit_item' => 'Modifica ' . $singular,
       'view_item' => 'Vedi ' . $singular,
