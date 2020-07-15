@@ -70,6 +70,7 @@ module.exports = (env, args) => {
         loader: 'css-loader',
         options: {
           sourceMap: isDev,
+          url: false
         },
       },
       {
