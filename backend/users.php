@@ -13,19 +13,19 @@
 function wideo_add_complete_access_to_to_cpt($singular, $plural, $role, $exclude = array()) {
   $users = get_role($role);
 
-  if (!in_array('read_'.$singular)) $users->add_cap('read_'.$singular);
-  if (!in_array('edit_'.$singular)) $users->add_cap('edit_'.$singular);
-  if (!in_array('delete_'.$singular)) $users->add_cap('delete_'.$singular);
-  if (!in_array('read_private_'.$plural)) $users->add_cap('read_private_'.$plural); 
-  if (!in_array('publish_'.$plural)) $users->add_cap('publish_'.$plural); 
-  if (!in_array('edit_'.$plural)) $users->add_cap('edit_'.$plural); 
-  if (!in_array('edit_others_'.$plural)) $users->add_cap('edit_others_'.$plural); 
-  if (!in_array('edit_published_'.$plural)) $users->add_cap('edit_published_'.$plural);
-  if (!in_array('edit_private_'.$plural)) $users->add_cap('edit_private_'.$plural); 
-  if (!in_array('delete_'.$plural)) $users->add_cap('delete_'.$plural); 
-  if (!in_array('delete_others_'.$plural)) $users->add_cap('delete_others_'.$plural); 
-  if (!in_array('delete_published_'.$plural)) $users->add_cap('delete_published_'.$plural);
-  if (!in_array('delete_private_'.$plural)) $users->add_cap('delete_private_'.$plural); 
+  if (!in_array('read_'.$singular, $exclude)) $users->add_cap('read_'.$singular);
+  if (!in_array('edit_'.$singular, $exclude)) $users->add_cap('edit_'.$singular);
+  if (!in_array('delete_'.$singular, $exclude)) $users->add_cap('delete_'.$singular);
+  if (!in_array('read_private_'.$plural, $exclude)) $users->add_cap('read_private_'.$plural); 
+  if (!in_array('publish_'.$plural, $exclude)) $users->add_cap('publish_'.$plural); 
+  if (!in_array('edit_'.$plural, $exclude)) $users->add_cap('edit_'.$plural); 
+  if (!in_array('edit_others_'.$plural, $exclude)) $users->add_cap('edit_others_'.$plural); 
+  if (!in_array('edit_published_'.$plural, $exclude)) $users->add_cap('edit_published_'.$plural);
+  if (!in_array('edit_private_'.$plural, $exclude)) $users->add_cap('edit_private_'.$plural); 
+  if (!in_array('delete_'.$plural, $exclude)) $users->add_cap('delete_'.$plural); 
+  if (!in_array('delete_others_'.$plural, $exclude)) $users->add_cap('delete_others_'.$plural); 
+  if (!in_array('delete_published_'.$plural, $exclude)) $users->add_cap('delete_published_'.$plural);
+  if (!in_array('delete_private_'.$plural, $exclude)) $users->add_cap('delete_private_'.$plural); 
 }
 
 // Funzione principale che modifica i ruoli degli utenti
