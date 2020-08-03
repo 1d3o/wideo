@@ -32,9 +32,9 @@ add_post_type_support('page', 'excerpt');
 
 add_theme_support('post-thumbnails');
 
+// Disable gutenberg.
+// ***********************************************************
 
-
-/*** RIMOZIONE GUTEMBERG **/
 // disable Gutenberg for posts
 add_filter('use_block_editor_for_post', '__return_false', 10);
 
