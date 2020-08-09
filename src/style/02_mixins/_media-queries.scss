@@ -1,0 +1,23 @@
+@mixin mq($minWidth, $maxWidth) {
+  @media only screen and (min-width: $minWidth) and (max-width: $maxWidth) {
+    @content;
+  }
+}
+
+@mixin mq-max($maxWidth) {
+  @media only screen and (max-width: $maxWidth) {
+    @content;
+  }
+}
+
+@mixin mq-min($minWidth) {
+  @media only screen and (min-width: $minWidth) {
+    @content;
+  }
+}
+
+@mixin mq-hover() {
+  @media (hover: hover) {
+    @content;
+  }
+}

@@ -1,0 +1,23 @@
+.bg-media {
+  img,
+  picture,
+  video {
+    @include size(100%);
+  }
+
+  picture {
+    display: flex;
+  }
+
+  picture,
+  video {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  img,
+  video {
+    object-fit: cover;
+  }
+}

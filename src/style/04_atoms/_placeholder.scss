@@ -1,0 +1,35 @@
+.placeholder {
+  @include size(100%);
+  background-color: $black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    width: 300%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: -100%;
+    background-image: linear-gradient(to right,transparent 35%,#fff,transparent 65%);
+    animation: placeholder 1s infinite alternate ease-in-out;
+  }
+
+  .loaded & {
+    display: none;
+    &::before {
+      animation-play-state: paused;
+    }
+  }
+}
+
+@keyframes placeholder {
+  0% {
+    transform: translateX(-33%);
+  }
+  100% {
+    transform: translateX(33%);
+  }
+}
