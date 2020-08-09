@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font_default, sans-serif;
+  background-color: $color_white;
+  color: $color_black;
+  position: relative;
+  overflow-x: hidden;
+  margin: 0 !important;
+}
+
+main {
+  position: relative;
+  overflow-x: hidden;
+}
+
+a {
+  color: $color_black;
+}
+
+img {
+  max-width: 100%;
+}

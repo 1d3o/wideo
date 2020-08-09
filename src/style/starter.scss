@@ -1,11 +1,9 @@
 @import 'variables';
 @import 'mixin';
-
-// Vendors
-// @import 'vendors/example';
+@import 'normalizer';
+@import 'base';
+@import 'helpers';
 
 // Components
 // @import 'components/example';
 
-// Shame
-@import 'shame';

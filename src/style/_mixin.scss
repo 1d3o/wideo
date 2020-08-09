@@ -1,0 +1,59 @@
+// Responsive sizes
+/////////////////////////////////////////////
+
+@function VW($size, $max) {
+  @return ($size / $max) * 100vw;
+}
+
+@function vwm($size) {
+  @return VW($size, $size_mobile_max);
+}
+
+@function vwd($size) {
+  @return VW($size, $size_desk_max);
+}
+
+// Media queries
+/////////////////////////////////////////////
+
+@function bk($bk: "mobile") {
+  @if not map-has-key($size_breakpoints, $bk) {
+    @warn "No breakpoint value found in $breakpoints map for '#{$bk}'. Property omitted.";
+  }
+  @return map-get($size_breakpoints, $bk);
+}
+
+@mixin mq($minWidth, $maxWidth) {
+  @media only screen and (min-width: $minWidth) and (max-width: $maxWidth) {
+    @content;
+  }
+}
+
+@mixin mq-max($maxWidth) {
+  @media only screen and (max-width: $maxWidth) {
+    @content;
+  }
+}
+
+@mixin mq-min($minWidth) {
+  @media only screen and (min-width: $minWidth) {
+    @content;
+  }
+}
+
+// Inputs
+/////////////////////////////////////////////
+
+$pseudo-prefix: "::-webkit-input-placeholder" "::-moz-placeholder" ":-ms-input-placeholder" "::placeholder";
+@mixin placeholder {
+  @each $pseudo in $pseudo-prefix {
+    @at-root #{&}#{$pseudo} {
+      @content;
+    }
+  }
+}
+
+// Other
+/////////////////////////////////////////////
+
+// ...

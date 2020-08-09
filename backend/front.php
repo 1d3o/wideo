@@ -39,10 +39,10 @@ function remove_cssjs_ver( $src ) {
 
 function wideo_enqueue_scripts() {
   $template_directory = get_template_directory_uri();
-    // include custom jQuery
+    wp_enqueue_style('starter', $template_directory.'/assets/starter.css');
+    wp_enqueue_style('application', $template_directory.'/assets/application.css', ['starter']);
     // wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js', array(), null, true);
     wp_enqueue_script('application', $template_directory. '/assets/application.js', '', '1.0.0', true);
-    wp_enqueue_style('application', $template_directory.'/assets/application.css');
 
     // COMPILE_CODE_HERE: aggiungere eventuali script da richiamare sul front o su specifiche pagine
 }

@@ -1,0 +1,26 @@
+// Fonts
+//////////////////////////////////////////////////////////
+
+$font_default: sans-serif;
+
+// Colors
+//////////////////////////////////////////////////////////
+
+$color_white: #ffffff;
+$color_black: #707070;
+$color_primary: red;
+
+// Sizes
+//////////////////////////////////////////////////////////
+
+$size_desk_max: 1920;
+$size_mobile_max: 360;
+
+$size_breakpoints: (
+  mobile: 580px,
+  tab-down: 767px,
+  desk-tab: 998px,
+  desk-down: 1280px,
+  desk-medium: 1600px,
+  desk-large: 1920px
+);
