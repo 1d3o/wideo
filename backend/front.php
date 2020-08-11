@@ -42,12 +42,20 @@ function wideo_enqueue_scripts() {
     // include custom jQuery
     // wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js', array(), null, true);
     wp_enqueue_script('application', $template_directory. '/assets/application.js', '', '1.0.0', true);
-    wp_enqueue_style('application', $template_directory.'/assets/application.css');
+    wp_enqueue_style('application', $template_directory.'/assets/starter.css');
 
     // COMPILE_CODE_HERE: aggiungere eventuali script da richiamare sul front o su specifiche pagine
 }
 
 add_action('wp_enqueue_scripts', 'wideo_enqueue_scripts');
+
+// inserisco il css che deve caricare dopo nel footer
+function prefix_add_footer_styles() {
+  $template_directory = get_template_directory_uri();
+
+  wp_enqueue_style('application', $template_directory.'/assets/application.css');
+};
+add_action( 'get_footer', 'prefix_add_footer_styles' );
 
 // Clean Wordpress meta tag (active them for a blog).
 // ***********************************************************
