@@ -5,6 +5,8 @@
  * Gestisce tutte le impostazioni che vanno a modificare il front-end del sito.
  */
 
+add_theme_support( 'title-tag' );
+
 // Remove script and styles
 // ***********************************************************
 
@@ -12,8 +14,8 @@ function wideo_deregister_scripts(){
   if ( !is_admin() ) {
     wp_deregister_script('jquery');
   }
-   
 }
+
 function wideo_deregister_styles() {
     wp_dequeue_style( 'wp-block-library' );
 }
@@ -23,11 +25,8 @@ function disable_embed(){
 }
   
 add_action( 'wp_footer', 'disable_embed' );
-
 add_action( 'wp_enqueue_scripts', 'wideo_deregister_scripts' );
 add_action( 'wp_print_styles', 'wideo_deregister_styles', 100 );
-add_theme_support( 'title-tag' );
-
 
 // Load scripts on theme.
 // ***********************************************************
