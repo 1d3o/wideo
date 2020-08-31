@@ -36,21 +36,24 @@ function remove_cssjs_ver( $src ) {
   return $src;
 }
 
-function wideo_enqueue_scripts() {
+function wideo_prefix_add_header_scripts_styles() {
   $template_directory = get_template_directory_uri();
-    // include custom jQuery 3.5.1
-    // wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js', array(), null, true);
-    // include custom application javascript
-    wp_enqueue_script('application', $template_directory. '/assets/application.js', '', '1.0.0', true);
-    // include custom starter css
-    wp_enqueue_style('starter', $template_directory.'/assets/starter.css');
 
-    // COMPILE_CODE_HERE: aggiungere eventuali script/css da richiamare sul front o su specifiche pagine nell'header
+  // include custom jQuery 3.5.1
+  // wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js', array(), null, true);
+
+  // include custom application javascript
+  wp_enqueue_script('application', $template_directory. '/assets/application.js', '', '1.0.0', true);
+
+  // include custom starter css
+  wp_enqueue_style('starter', $template_directory.'/assets/starter.css');
+
+  // COMPILE_CODE_HERE: aggiungere eventuali script/css da richiamare sul front o su specifiche pagine nell'header
 }
 
-add_action('wp_enqueue_scripts', 'wideo_enqueue_scripts');
+add_action('wp_enqueue_scripts', 'wideo_prefix_add_header_scripts_styles');
 
-function wideo_prefix_add_footer_styles() {
+function wideo_prefix_add_footer_scripts_styles() {
   $template_directory = get_template_directory_uri();
 
   // include custom application css
@@ -58,7 +61,7 @@ function wideo_prefix_add_footer_styles() {
 
   // COMPILE_CODE_HERE: aggiungere eventuali script/css da richiamare sul front o su specifiche pagine nel footer
 };
-add_action( 'get_footer', 'wideo_prefix_add_footer_styles' );
+add_action( 'get_footer', 'wideo_prefix_add_footer_scripts_styles' );
 
 // Clean Wordpress meta tag (active them for a blog).
 // ***********************************************************
