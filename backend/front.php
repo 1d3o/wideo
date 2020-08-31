@@ -50,7 +50,6 @@ function wideo_prefix_add_header_scripts_styles() {
 
   // COMPILE_CODE_HERE: aggiungere eventuali script/css da richiamare sul front o su specifiche pagine nell'header
 }
-
 add_action('wp_enqueue_scripts', 'wideo_prefix_add_header_scripts_styles');
 
 function wideo_prefix_add_footer_scripts_styles() {
@@ -60,7 +59,7 @@ function wideo_prefix_add_footer_scripts_styles() {
   wp_enqueue_style('application', $template_directory.'/assets/application.css');
 
   // COMPILE_CODE_HERE: aggiungere eventuali script/css da richiamare sul front o su specifiche pagine nel footer
-};
+}
 add_action( 'get_footer', 'wideo_prefix_add_footer_scripts_styles' );
 
 // Clean Wordpress meta tag (active them for a blog).
@@ -188,8 +187,8 @@ function disable_pingback( &$links ) {
   foreach ( $links as $l => $link )
   if ( 0 === strpos( $link, home_url() ) )
   unset($links[$l]);
- }
- add_action( 'pre_ping', 'disable_pingback' );
+}
+add_action( 'pre_ping', 'disable_pingback' );
  
  function wpdocs_dequeue_dashicon() {
   if (current_user_can( 'update_core' )) {
