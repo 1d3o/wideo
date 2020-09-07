@@ -29,8 +29,8 @@ function wideo_setup_acf_options_page()
     }
 
     acf_add_options_page([
-        'page_title' => 'Site Settings',
-        'menu_title' => 'Site Settings',
+        'page_title' => 'Settaggi',
+        'menu_title' => 'Settaggi',
         'menu_slug' => 'site-settings',
         'capability' => 'manage_options',
     ]);
