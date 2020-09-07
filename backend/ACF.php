@@ -4,7 +4,8 @@
  * IMPOSTAZIONI ACF.
  * Questo file imposta tramite ACF la sezione impostazioni sito con campi custom utilizzati in tutto
  * il sito.
- * TODO: Spiegare come aggiungere campi e come utilizzarli sul sito.
+ * Per aggiungere un custom field sulle impostazioni generali ("Settaggi") bisogna aggiungere i field su "Pagina opzioni".
+ * Per prendere il valore utilizzare la funzione get_field('nome_field', 'options');
  */
 
 define( 'FUNCTION_ACF', get_stylesheet_directory() . '/backend/ACF/' );
@@ -36,3 +37,11 @@ function wideo_setup_acf_options_page()
     ]);
 }
 add_action('after_setup_theme',  'wideo_setup_acf_options_page');
+
+// Imposto la chiave di Google maps
+// ***********************************************************
+
+// function wideo_acf_init_gmaps() {
+//    acf_update_setting('google_api_key', 'xxx-yourkey-xxx);
+// }
+// add_action('acf/init', 'wideo_acf_init_gmaps');
