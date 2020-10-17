@@ -1,11 +1,9 @@
-<?php /** Template Name: Frontpage */ ?>
-
 <?php get_header(); ?>
 
 <main role="main">
 
-  <h1>Homepage</h1>
-  <p>This is the main homepage template.</p>
+  <h1>Page</h1>
+  <p>This is a page of the template.</p>
 
   <?php if ( have_posts() ) :?>
     <?php while ( have_posts() ) : the_post(); ?>
