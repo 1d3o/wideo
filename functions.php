@@ -43,6 +43,6 @@ function wideo_mailer_initialize() {
       'params_required' => ['name', 'surname', 'email'],
       'mail_to' => 'test@mail.com',
       'mail_subject' => 'New email from website'
-    )
+    ),
   );
 }

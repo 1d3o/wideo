@@ -64,16 +64,7 @@ function wideo_register_post_type($name, $singular, $multiple, $slug, $icon, $ar
       'feeds' => false,
       'pages' => true,
     ],
-    'capabilities' => array(
-      'edit_post'          => 'edit_cpt', 
-      'read_post'          => 'read_cpt', 
-      'delete_post'        => 'delete_cpt', 
-      'edit_posts'         => 'edit_cpts', 
-      'edit_others_posts'  => 'edit_others_cpts', 
-      'publish_posts'      => 'publish_cpts',       
-      'read_private_posts' => 'read_private_cpts', 
-      'create_posts'       => 'edit_cpts'
-    ),
+    'capabilities' => array(),
   ];
   $args = array_merge($defaults, $args);
   register_post_type($name, $args);
@@ -118,6 +109,7 @@ function wideo_register_taxonomy($name, $singular, $multiple, $slug, $postTypes 
 }
 
 // Registrazione post type e tassonomia
+// NOTE: Per info icone: https://developer.wordpress.org/resource/dashicons/#image-flip-vertical
 // ***********************************************************
 
 function wideo_register_cpt_and_tax() {

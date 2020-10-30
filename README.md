@@ -23,3 +23,9 @@ npm run build
 ```
 
 The build process should create a **./build** directory with the official theme ready for production.
+
+## Utilizzo impostazioni globali
+
+```php
+get_field('nome_field', 'option');
+```

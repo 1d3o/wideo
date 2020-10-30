@@ -41,13 +41,6 @@ add_filter('use_block_editor_for_post', '__return_false', 10);
 // disable Gutenberg for post types
 add_filter('use_block_editor_for_post_type', '__return_false', 10);
 
-// remove Gutemberg CSS
-add_action( 'wp_print_styles', 'wps_deregister_styles', 100 );
-function wps_deregister_styles() {
-    wp_dequeue_style( 'wp-block-library' );
-}
-
-
 // Dashboard widgets.
 // ***********************************************************
 
@@ -99,11 +92,12 @@ update_option( 'thumbnail_size_h', 150 );
 update_option( 'medium_size_w', 560 );
 update_option( 'medium_size_h', 400 );
 
-update_option( 'medium_large_size_w', 0 );
-update_option( 'medium_large_size_h', 0 );
-
 update_option( 'large_size_w', 1920 );
 update_option( 'large_size_h', 1280 );
+
+// annullamento dimensioni che non ci interessano
+update_option( 'medium_large_size_w', 0 );
+update_option( 'medium_large_size_h', 0 );
 
 // Remove dashboard
 // ***********************************************************
@@ -155,3 +149,19 @@ function disable_comments () {
   }
 }
 add_action('admin_init', 'disable_comments');
+
+// Load custom CSS on admin area.
+// ***********************************************************
+
+function wideo_load_custom_css_admin() {
+  echo '<link rel=\'stylesheet\' id=\'ideologin\' href=\''.get_template_directory_uri().'/assets/backend.css\' type=\'text/css\' media=\'all\' /> ';
+}
+add_action('admin_head', 'wideo_load_custom_css_admin');
+
+// Load custom CSS on login area.
+// ***********************************************************
+
+function wideo_load_custom_css_login() {
+  echo '<link rel=\'stylesheet\' id=\'ideologin\' href=\''.get_template_directory_uri().'/assets/backend.css\' type=\'text/css\' media=\'all\' /> ';
+}
+add_action('login_head', 'wideo_load_custom_css_login');

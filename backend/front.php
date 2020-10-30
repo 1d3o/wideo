@@ -17,7 +17,7 @@ function wideo_deregister_scripts(){
 }
 
 function wideo_deregister_styles() {
-    wp_dequeue_style( 'wp-block-library' );
+  wp_dequeue_style( 'wp-block-library' );
 }
 
 function disable_embed(){
@@ -39,14 +39,8 @@ function remove_cssjs_ver( $src ) {
 function wideo_prefix_add_header_scripts_styles() {
   $template_directory = get_template_directory_uri();
 
-  // include custom jQuery 3.5.1
-  // wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js', array(), null, true);
-
-  // include custom application javascript
-  wp_enqueue_script('application', $template_directory. '/assets/application.js', '', '1.0.0', true);
-
   // include custom starter css
-  wp_enqueue_style('starter', $template_directory.'/assets/starter.css');
+  wp_enqueue_style('starter', $template_directory.'/assets/starter.css', '', '1.0.0');
 
   // COMPILE_CODE_HERE: aggiungere eventuali script/css da richiamare sul front o su specifiche pagine nell'header
 }
@@ -56,7 +50,13 @@ function wideo_prefix_add_footer_scripts_styles() {
   $template_directory = get_template_directory_uri();
 
   // include custom application css
-  wp_enqueue_style('application', $template_directory.'/assets/application.css');
+  wp_enqueue_style('application', $template_directory.'/assets/application.css', '', '1.0.0');
+
+  // include custom jQuery 3.5.1
+  // wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js', array(), null, true);
+
+  // include custom application javascript
+  wp_enqueue_script('application', $template_directory. '/assets/application.js', '', '1.0.0', true);
 
   // COMPILE_CODE_HERE: aggiungere eventuali script/css da richiamare sul front o su specifiche pagine nel footer
 }
@@ -144,7 +144,7 @@ add_filter('get_avatar', 'wideo_remove_autoclosing_tags'); // <img />
 add_filter('comment_id_fields', 'wideo_remove_autoclosing_tags'); // <input />
 add_filter('post_thumbnail_html', 'wideo_remove_autoclosing_tags'); // <img />
 
-// Clean menus classes.
+// Manage menus classes.
 // ***********************************************************
 
 function wideo_clean_menus_classes($var) {
@@ -155,7 +155,7 @@ function wideo_clean_menus_classes($var) {
     'current_page_parent',
     'current_page_ancestor',
     'current-menu-item',
-    'menu-item-has-children'
+    'menu-item-has-children',
   )) : '';
 }
 add_filter('nav_menu_css_class', 'wideo_clean_menus_classes');

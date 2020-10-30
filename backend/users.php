@@ -40,12 +40,10 @@ function wideo_edit_built_in_roles() {
       $wp_roles->remove_role($role);
     }
   }
-  // add cpt access to admin
-  wideo_add_complete_access_to_to_cpt('cpt', 'cpts', 'administrator');
 
-  // add custom client role
+  // add custom manager role
   $wp_roles->add_role(
-    'client',
+    'manager',
     'Gestore',
     array(
       // general
@@ -84,7 +82,9 @@ function wideo_edit_built_in_roles() {
       'delete_private_posts'	=> false
     )
   );
-  wideo_add_complete_access_to_to_cpt('cpt', 'cpts', 'client');
+  
+  // Esempio applicazione permessi custom su un custom post type.
+  // wideo_add_complete_access_to_to_cpt('cpt', 'cpts', 'client');
 
   // COMPILE_CODE_HERE: aggiungere eventuali ruoli copiando il codice utilizzato sopra per il ruolo "client"
 }

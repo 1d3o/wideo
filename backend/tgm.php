@@ -34,12 +34,6 @@ function wideo_tgm_plugin(){
 			'external_url' => 'https://it.wordpress.org/plugins/better-wp-security/'
 		),
 		array(
-			'name' => 'Optimus Image Optimizer',
-			'slug' => 'optimus',
-			'required' => false,
-			'external_url' => 'https://it.wordpress.org/plugins/optimus/'
-		),
-		array(
 			'name' => 'WP Mail SMTP',
 			'slug' => 'wp-mail-smtp',
 			'required' => false,

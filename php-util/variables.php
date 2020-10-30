@@ -11,4 +11,5 @@ $globals = array(
   'template_url' => get_template_directory_uri()
 );
 
+
 extract($globals);

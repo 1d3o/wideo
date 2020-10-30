@@ -104,4 +104,34 @@ function picture_padding ($w, $h, $echo = TRUE) {
   }
 }
 
+function picture_src($image) {
+  if (is_array($image)) { // NOTE: Si considera array di acf
+    return array(
+      '150' => $image['sizes']['thumbnail'],
+      '560' => $image['sizes']['medium'],
+      '1920' => $image['sizes']['large'],
+      'other' => $image['url']
+    );
+  } else {
+    return $image;
+  }
+}
+
+function picture_mime($image) {
+  if (is_array($image)) { // NOTE: Si considera array di acf
+    return $image['mime_type'];
+  } else {
+    return 'jpeg';
+  }
+}
+
+function picture_alt($image) {
+  global $SITENAME;
+  if (is_array($image)) { // NOTE: Si considera array di acf
+    return $image['alt'];
+  } else {
+    return get_bloginfo('name');
+  }
+}
+
 ?>
