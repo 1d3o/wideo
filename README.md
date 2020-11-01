@@ -4,24 +4,6 @@ Wordpress starting framework for magic websites.
 
 Full documentation: <a href="https://github.com/ideonetwork/wideo/wiki">https://github.com/ideonetwork/wideo/wiki</a>
 
-## Installation
-
-Run the following commands inside the wp-content/themes directory:
-
-```shell
-git clone https://github.com/ideonetwork/wideo
-cd wideo
-npm install -g webpack-cli
-yarn install
-npm run start
-```
-
-# Wideo
-
-Wordpress starting framework for magic websites.
-
-Full documentation: <a href="https://github.com/ideonetwork/wideo/wiki">https://github.com/ideonetwork/wideo/wiki</a>
-
 ## Installation for wordpress websites
 
 Run the following commands inside the wp-content/themes directory:
