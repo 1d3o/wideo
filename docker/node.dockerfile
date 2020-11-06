@@ -2,6 +2,6 @@ FROM node:latest
 
 RUN apt-get update
 
-RUN npm install -g yarn webpack-cli webpack
+RUN npm install -g webpack-cli webpack
 COPY . /theme
 WORKDIR /theme
