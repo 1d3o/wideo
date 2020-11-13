@@ -32,6 +32,9 @@ require get_template_directory() . '/backend/tgm.php';
 // -> Import ACF
 require get_template_directory() . '/backend/ACF.php';
 
+// -> clean cache preload wp-rocket on save or update post
+require get_template_directory() . '/backend/wp-rocket-auto-clean-cache.php';
+
 // Initialize Wideo Mailer options
 // ***********************************************************
 
