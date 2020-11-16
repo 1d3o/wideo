@@ -29,6 +29,7 @@ services:
     environment:
       PMA_HOST: mysql
       MYSQL_ROOT_PASSWORD: root 
+      UPLOAD_LIMIT: 3000000000
   wordpress:
     depends_on: [mysql]
     build:
