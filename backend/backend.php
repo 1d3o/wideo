@@ -96,8 +96,13 @@ update_option( 'large_size_w', 1920 );
 update_option( 'large_size_h', 1280 );
 
 // annullamento dimensioni che non ci interessano
-update_option( 'medium_large_size_w', 0 );
-update_option( 'medium_large_size_h', 0 );
+function remove_default_image_sizes( $sizes) {
+    unset( $sizes['medium_large']);
+    unset( $sizes['1536x1536']);
+    unset( $sizes['2048x2048']);
+    return $sizes;
+}
+add_filter('intermediate_image_sizes_advanced', 'wideo_remove_default_image_sizes');
 
 // Remove dashboard
 // ***********************************************************
