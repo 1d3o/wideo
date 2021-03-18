@@ -12,7 +12,7 @@ module.exports = (env, args) => {
       ignoreFiles: [
         '.wideo.json', 'webpack.config.js', 'README.md', 'package.json', 'package-lock.json', 'yarn.lock', '.gitignore',
         'src', 'build', 'node_modules', 'bower_components', '.git', 'docs', '.editorconfig',
-        'docker-compose.yml', '.dockerignore', 'docker'
+        'docker-compose.yml', '.dockerignore', 'docker', 'cache'
       ]
     }
     fs.writeFileSync('./.wideo.json', JSON.stringify(wideo, null, 2), 'utf8')

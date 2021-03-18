@@ -14,6 +14,7 @@ require get_template_directory() . '/php-util/menus.php';
 
 // Plugins (plugin custom del tema)
 require get_template_directory() . '/plugins/tgm.php';
+require get_template_directory() . '/plugins/cache.php';
 require get_template_directory() . '/plugins/wideo-mailer/mailer.php';
 
 // Backend (configurazione wordpress)
