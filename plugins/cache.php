@@ -31,7 +31,7 @@ function cache_read($key, $max_lifetime_seconds = 3600) {
   // check file is not too older
   if (time() - filemtime($file) > $max_lifetime_seconds) return null;
 
-  return readfile($file);
+  return file_get_contents($file);
 }
 
 /**
