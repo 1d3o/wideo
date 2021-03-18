@@ -38,7 +38,7 @@ function cache_read($key, $max_lifetime_seconds = 3600) {
  * Esegue la scrittura di un oggetto in cache.
  */
 function cache_write_object($key, $data) {
-  return cache_write($key, json_encode($data));
+  return cache_write($key, serialize($data));
 }
 
 /**
@@ -48,5 +48,5 @@ function cache_read_object($key, $max_lifetime_seconds) {
   $data = cache_read($key, $max_lifetime_seconds);
   if (!$data) return null;
 
-  return json_decode($data);
+  return unserialize($data);
 }
