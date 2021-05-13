@@ -113,9 +113,11 @@ function wideo_register_taxonomy($name, $singular, $multiple, $slug, $postTypes 
 // ***********************************************************
 
 function wideo_register_cpt_and_tax() {
-  // wideo_register_post_type('service', 'Servizio', 'Servizi', 'service', 'nome-icona');
-  // wideo_register_taxonomy('category-service', 'Categoria servizio', 'Categorie servizio', 'categoria-servizio', ['service']);
-
-  // COMPILE_CODE_HERE: aggiungere registrazione di eventuali custom post type
+  # posts
+  wideo_register_post_type('machine', 'Macchina', 'Macchine', 'machine', 'nome-icona');
+  wideo_register_post_type('story', 'Storia', 'Storie', 'story', 'nome-icona');
+  # taxonomies
+  wideo_register_taxonomy('chain', 'Catena', 'Catene', 'chain', ['machine']);
+  wideo_register_taxonomy('typology', 'Tipologia', 'Tipologie', 'typology', ['machine']);
 }
 add_action( 'init', 'wideo_register_cpt_and_tax');
