@@ -2,7 +2,7 @@
 /////////////////////////////////////////////
 
 @function VW($size, $max) {
-  @return ($size / $max) * 100vw;
+  @return calc($size / $max) * 100vw;
 }
 
 @function vwm($size) {
