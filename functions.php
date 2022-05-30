@@ -35,7 +35,10 @@ require get_template_directory() . '/backend/ACF.php';
 
 // -> clean cache preload wp-rocket on save or update post
 require get_template_directory() . '/backend/wp-rocket-auto-clean-cache.php';
-
+// -> limit upload image media gallery
+require get_template_directory() . '/backend/custom-limit-media-upload-size.php';
+// -> custom duplicate post
+require get_template_directory() . '/backend/custom-duplicate-post.php';
 // Initialize Wideo Mailer options
 // ***********************************************************
 
