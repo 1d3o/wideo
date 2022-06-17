@@ -39,6 +39,10 @@ require get_template_directory() . '/backend/wp-rocket-auto-clean-cache.php';
 require get_template_directory() . '/backend/custom-limit-media-upload-size.php';
 // -> custom duplicate post
 require get_template_directory() . '/backend/custom-duplicate-post.php';
+// -> custom login
+require get_template_directory() . '/backend/custom-login.php';
+
+
 // Initialize Wideo Mailer options
 // ***********************************************************
 
