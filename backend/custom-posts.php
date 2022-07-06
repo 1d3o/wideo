@@ -113,8 +113,8 @@ function wideo_register_taxonomy($name, $singular, $multiple, $slug, $postTypes 
 // ***********************************************************
 
 function wideo_register_cpt_and_tax() {
-  // wideo_register_post_type('service', 'Servizio', 'Servizi', 'service', 'nome-icona');
-  // wideo_register_taxonomy('category-service', 'Categoria servizio', 'Categorie servizio', 'categoria-servizio', ['service']);
+  wideo_register_post_type('product', 'Prodotto', 'Prodotti', 'product', 'dashicons-admin-post');
+  wideo_register_taxonomy('category-product', 'Categoria prodotto', 'Categorie prodotto', 'category-product', ['product']);
 
   // COMPILE_CODE_HERE: aggiungere registrazione di eventuali custom post type
 }

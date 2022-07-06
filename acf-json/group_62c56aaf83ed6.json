@@ -1,0 +1,54 @@
+{
+    "key": "group_62c56aaf83ed6",
+    "title": "Impostazioni pagina",
+    "fields": [
+        {
+            "key": "field_62c56abdab45d",
+            "label": "Modulo contatto",
+            "name": "contact_module",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "no": "Non attivo",
+                "small": "Modulo piccolo (rimanda a pagina contatti)",
+                "info": "Modulo richiesta informazioni",
+                "candidature": "Modulo invio candidatura",
+                "general": "Modulo invio generale"
+            },
+            "default_value": [
+                "no"
+            ],
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1657109619
+}

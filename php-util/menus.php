@@ -9,8 +9,19 @@ function mainMenu() {
   wp_nav_menu (
     array (
       'theme_location' => 'main-menu',
-      'menu_class' => 'nav__main-menu',
+      'menu_class' => '',
       'menu_id' => 'main-menu',
+      'container' => false
+    )
+  );
+}
+
+function footerMenu() {
+  wp_nav_menu (
+    array (
+      'theme_location' => 'footer-menu',
+      'menu_class' => '',
+      'menu_id' => 'footer-menu',
       'container' => false
     )
   );
