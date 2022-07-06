@@ -32,8 +32,6 @@ require get_template_directory() . '/backend/custom-posts.php';
 require get_template_directory() . '/backend/tgm.php';
 // -> Import ACF
 require get_template_directory() . '/backend/ACF.php';
-// -> Set polylang integration
-require get_template_directory() . '/backend/polylang.php';
 
 // -> clean cache preload wp-rocket on save or update post
 require get_template_directory() . '/backend/wp-rocket-auto-clean-cache.php';
@@ -58,22 +56,4 @@ function wideo_mailer_initialize() {
       'mail_subject' => 'New email from website'
     ),
   );
-}
-
-// Helpers
-// ***********************************************************
-
-function get_formatted_content($content) {
-  return apply_filters('the_content', $content);
-}
-
-function get_image_url($image, $size) {
-  if (!$image) return '';
-  if (is_string($image)) return $image;
-
-  if ($image['sizes'][$size]) {
-    return $image['sizes'][$size];
-  } else {
-    return $image['url'];
-  }
 }
