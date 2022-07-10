@@ -57,3 +57,10 @@ function wideo_mailer_initialize() {
     ),
   );
 }
+
+// Helpers
+// ***********************************************************
+
+function get_pagination_current_page() {
+  return get_query_var('paged') ? get_query_var('paged') : 1;
+}

@@ -42,6 +42,9 @@ function wideo_prefix_add_header_scripts_styles() {
   // include custom starter css
   wp_enqueue_style('starter', $template_directory.'/assets/starter.css', '', '1.0.0');
 
+  // include custom turbo javascript
+  wp_enqueue_script('turbo', $template_directory. '/assets/turbo.js', '', '1.0.0', false);
+
   // COMPILE_CODE_HERE: aggiungere eventuali script/css da richiamare sul front o su specifiche pagine nell'header
 }
 add_action('wp_enqueue_scripts', 'wideo_prefix_add_header_scripts_styles');
