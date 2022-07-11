@@ -41,6 +41,8 @@ require get_template_directory() . '/backend/custom-limit-media-upload-size.php'
 require get_template_directory() . '/backend/custom-duplicate-post.php';
 // -> custom login
 require get_template_directory() . '/backend/custom-login.php';
+// -> custom mailer
+require get_template_directory() . '/backend/custom-mailer.php';
 
 
 // Initialize Wideo Mailer options
@@ -52,6 +54,7 @@ function wideo_mailer_initialize() {
       'debug' => false,
       'params' => ['name', 'surname', 'email', 'phone', 'object', 'message'],
       'params_required' => ['name', 'surname', 'email'],
+      'params_attachments' => ['file'],
       'mail_to' => 'test@mail.com',
       'mail_subject' => 'New email from website'
     ),
