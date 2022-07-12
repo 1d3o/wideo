@@ -45,6 +45,8 @@ The build process should create a **./build** directory with the official theme 
 
 ```php
   <form action="<?php echo admin_url( 'admin-ajax.php' ); ?>" data-controller="form" method="post" enctype="multipart/form-data">
+    <div data-form-target="feedback"></div>
+
     <input type="hidden" name="_form" value="contacts">
     <input type="hidden" name="action" value="custom_ajax_mailer">
     <div class="form-group">
