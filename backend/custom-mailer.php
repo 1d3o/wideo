@@ -7,8 +7,8 @@ function custom_ajax_mailer(){
   // Settings
   // -------------------------------------------------------------------------
 
-  if (function_exists('wideo_mailer_initialize') && isset($_POST['_form'])) {
-    $settings_array = wideo_mailer_initialize();
+  if (function_exists('custom_mailer_initialize') && isset($_POST['_form'])) {
+    $settings_array = custom_mailer_initialize();
     if (!isset($settings_array[$_POST['_form']])) {
       echo json_encode(array(
         'result' => false,

@@ -14,8 +14,6 @@ require get_template_directory() . '/php-util/menus.php';
 
 // Plugins (plugin custom del tema)
 require get_template_directory() . '/plugins/tgm.php';
-require get_template_directory() . '/plugins/cache.php';
-require get_template_directory() . '/plugins/wideo-mailer/mailer.php';
 
 // Backend (configurazione wordpress)
 // -> Update wordpress admin panel and options
@@ -48,7 +46,7 @@ require get_template_directory() . '/backend/custom-mailer.php';
 // Initialize Wideo Mailer options
 // ***********************************************************
 
-function wideo_mailer_initialize() {
+function custom_mailer_initialize() {
   return array(
     'contacts' => array(
       'debug' => false,
