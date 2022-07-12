@@ -9,13 +9,6 @@ export default class FormController extends Controller {
       e.preventDefault()
       this.onSubmit()
     })
-
-    // ascolto input per segnalazoni errore
-    // this.inputTargets.forEach((input) => {
-    //   input.addEventListener('change', (e) => {
-    //     input.classList.remove('is-error')
-    //   })
-    // })
   }
 
   onSubmit = () => {
