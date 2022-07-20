@@ -8,7 +8,7 @@
 // Funzione per la registrazione di un nuovo CPT
 // ***********************************************************
 
-function wideo_register_post_type($name, $singular, $multiple, $slug, $icon, $args = []) {
+function wideo_register_post_type($name, $singular, $multiple, $slug, $icon, $args = [], $capability = 'cpt') {
   $defaults = [
     'labels' => [
       'name' => $multiple,
@@ -64,7 +64,16 @@ function wideo_register_post_type($name, $singular, $multiple, $slug, $icon, $ar
       'feeds' => false,
       'pages' => true,
     ],
-    'capabilities' => array(),
+    'capabilities' => array(
+      'edit_post'          => 'edit_'.$capability.'', 
+      'read_post'          => 'read_'.$capability.'', 
+      'delete_post'        => 'delete_'.$capability.'', 
+      'edit_posts'         => 'edit_'.$capability.'s', 
+      'edit_others_posts'  => 'edit_others_'.$capability.'s', 
+      'publish_posts'      => 'publish_'.$capability.'s',       
+      'read_private_posts' => 'read_private_'.$capability.'s', 
+      'create_posts'       => 'edit_'.$capability.'s'
+    ),
   ];
   $args = array_merge($defaults, $args);
   register_post_type($name, $args);
@@ -103,6 +112,12 @@ function wideo_register_taxonomy($name, $singular, $multiple, $slug, $postTypes 
       'with_front' => false,
       'hierarchical' => true,
     ],
+    'capabilities' => array(
+      'manage_terms'  => 'manage_terms',
+      'edit_terms'    => 'manage_terms',
+      'delete_terms'  => 'manage_terms',
+      'assign_terms'  => 'manage_terms'
+    ),
   ];
   $args = array_merge($defaults, $args);
   register_taxonomy($name, $postTypes, $args);
