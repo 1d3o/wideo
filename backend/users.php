@@ -80,11 +80,22 @@ function wideo_edit_built_in_roles() {
       'delete_others_posts'	=> false,
       'delete_published_posts'	=> false,
       'delete_private_posts'	=> false
+
+      // users      
+      'list_users' => true,
+      'remove_users' => true,
+      'edit_users' => true,
+      'add_users' => true,
+      'create_users' => true,
+      'delete_users' => true,
+
+      // custom taxonomies
+      'manage_terms' => true,
     )
   );
   
   // Esempio applicazione permessi custom su un custom post type.
-  // wideo_add_complete_access_to_to_cpt('cpt', 'cpts', 'client');
+  // wideo_add_complete_access_to_to_cpt('cpt', 'cpts', 'manager');
 
   // COMPILE_CODE_HERE: aggiungere eventuali ruoli copiando il codice utilizzato sopra per il ruolo "client"
 }
