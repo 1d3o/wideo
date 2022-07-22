@@ -65,15 +65,38 @@ function custom_ajax_mailer(){
     $message .= $value ? "$parameter: $value \n\n" : '';
   }
 
+  // Prepare files data
   if($PARAMS_ATTACHMENTS[0]) {
     $files = [];
+    $index = 0;
 
     foreach($PARAMS_ATTACHMENTS as $key => $filename){
-      if($_FILES[$filename]['error'] == 0){
-        $uploadedfile = $_FILES[$filename];
-        $upload_overrides = array('test_form' => false);
-        $movefile = wp_handle_upload( $uploadedfile, $upload_overrides );
-        $files[$key] = $movefile['file'];
+      // load files from input file multiple (require name with "[]")
+      if(is_array($_FILES[$filename]['name'])){
+        foreach($_FILES[$filename]['name'] as $i => $name){
+          if($_FILES[$filename]['error'][$i] == 0){
+            $file = array(
+              'name' => $name,
+              'type' => $_FILES[$filename]['type'][$i],
+              'tmp_name' => $_FILES[$filename]['tmp_name'][$i],
+              'error' => $_FILES[$filename]['error'][$i],
+              'size' => $_FILES[$filename]['size'][$i]
+            );
+            $upload_overrides = array('test_form' => false);
+            $movefile = wp_handle_upload( $file, $upload_overrides);
+            $files[$index] = $movefile['file'];
+            $index++;
+          }
+        }
+      // load single file
+      } else {
+        if($_FILES[$filename]['error'] == 0){
+          $uploadedfile = $_FILES[$filename];
+          $upload_overrides = array('test_form' => false);
+          $movefile = wp_handle_upload( $uploadedfile, $upload_overrides );
+          $files[$index] = $movefile['file'];
+          $index++;
+        }
       }
     }
 

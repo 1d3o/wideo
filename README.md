@@ -64,4 +64,7 @@ The build process should create a **./build** directory with the official theme 
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
+
 ```
+<!-- Caricamento file singolo <input type="file" name="file">  -->
+<!-- Caricamento file multiplo <input type="file" name="file[]" multiple> -->
