@@ -69,7 +69,7 @@ function custom_ajax_mailer(){
     $files = [];
 
     foreach($PARAMS_ATTACHMENTS as $key => $filename){
-      if($_FILES[$filename] == 0){
+      if($_FILES[$filename]['error'] == 0){
         $uploadedfile = $_FILES[$filename];
         $upload_overrides = array('test_form' => false);
         $movefile = wp_handle_upload( $uploadedfile, $upload_overrides );
