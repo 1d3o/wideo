@@ -79,7 +79,7 @@ function wideo_edit_built_in_roles() {
       'delete_posts' => false,
       'delete_others_posts'	=> false,
       'delete_published_posts'	=> false,
-      'delete_private_posts'	=> false
+      'delete_private_posts'	=> false,
 
       // users      
       'list_users' => true,
