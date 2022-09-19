@@ -61,8 +61,16 @@ function custom_ajax_mailer(){
   // Prepare email data.
   $message = '';
   foreach ($PARAMS as $parameter) {
-    $value = isset($_POST[$parameter]) ? $_POST[$parameter] : '';
-    $message .= $value ? "$parameter: $value \n\n" : '';
+    if($parameter != 'honey'){
+      $value = isset($_POST[$parameter]) ? $_POST[$parameter] : '';
+      $message .= $value ? "$parameter: $value \n\n" : '';
+    }
+  }
+
+  $honeypot = $_POST['honey'];
+  if(! empty( $honeypot )){
+    return;
+    die();
   }
 
   // Prepare files data

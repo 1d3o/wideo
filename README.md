@@ -49,6 +49,8 @@ The build process should create a **./build** directory with the official theme 
 
     <input type="hidden" name="_form" value="contacts">
     <input type="hidden" name="action" value="custom_ajax_mailer">
+    <input type="hidden" name="honey" value="">
+
     <div class="form-group">
       <label for="name">Name</label>
       <input type="text" class="form-control" id="name" name="name" placeholder="Enter name" required>
