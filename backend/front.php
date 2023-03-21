@@ -54,11 +54,11 @@ function wideo_prefix_add_footer_scripts_styles() {
 
   // include custom jQuery 3.5.1
   // wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js', array(), null, true);
-
-  wp_localize_script( 'application', 'ajax_call', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
-  
   // include custom application javascript
   wp_enqueue_script('application', $template_directory. '/assets/application.js', '', '1.0.0', true);
+  wp_localize_script( 'application', 'ajax_call', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
+  
+
 
   // COMPILE_CODE_HERE: aggiungere eventuali script/css da richiamare sul front o su specifiche pagine nel footer
 }
