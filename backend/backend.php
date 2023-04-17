@@ -108,10 +108,10 @@ add_filter('intermediate_image_sizes_advanced', 'wideo_remove_default_image_size
 // ***********************************************************
 
 // redirect (when user goes to domain.com/wp-admin)
-function dashboard_redirect () {
-  wp_redirect(admin_url('edit.php?post_type=page'));
-}
-add_action('load-index.php', 'dashboard_redirect');
+// function dashboard_redirect () {
+//   wp_redirect(admin_url('edit.php?post_type=page'));
+// }
+// add_action('load-index.php', 'dashboard_redirect');
 
 // redirect when logged
 function login_redirect ($redirect_to, $request, $user) {
@@ -122,7 +122,8 @@ add_filter('login_redirect', 'login_redirect', 10, 3);
 // remove dashboard from menu
 function remove_menus () {
   global $menu;
-  $restricted = array(__('Dashboard'), __('Comments'));
+  $restricted = array(__('Comments'));
+  // $restricted = array(__('Dashboard'), __('Comments'));
   //$restricted = array(__('Dashboard'), __('Posts'), __('Media'), __('Links'), __('Pages'), __('Appearance'), __('Tools'), __('Users'), __('Settings'), __('Comments'), __('Plugins'));
   end($menu);
   while(prev($menu)){
