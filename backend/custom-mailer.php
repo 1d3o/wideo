@@ -62,8 +62,13 @@ function custom_ajax_mailer(){
   $message = '';
   foreach ($PARAMS as $parameter) {
     if($parameter != 'honey'){
-      $value = isset($_POST[$parameter]) ? $_POST[$parameter] : '';
-      $message .= $value ? "$parameter: $value \n\n" : '';
+      if(isset($_POST[$parameter]) && is_array($_POST[$parameter])){
+        // require name with "[]"
+        $message .= "$parameter: ".implode(', ', $_POST[$parameter])."\n\n";
+      } else {
+        $value = isset($_POST[$parameter]) ? $_POST[$parameter] : '';
+        $message .= $value ? "$parameter: $value \n\n" : '';
+      }
     }
   }
 
