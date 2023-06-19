@@ -53,6 +53,7 @@ function custom_mailer_initialize() {
       'params' => ['name', 'surname', 'email', 'phone', 'object', 'message'],
       'params_required' => ['name', 'surname', 'email'],
       'params_attachments' => ['file'],
+      'mail_from' => 'From:Ideo <dev@1d3o.it>',
       'mail_to' => 'test@mail.com',
       'mail_subject' => 'New email from website'
     ),

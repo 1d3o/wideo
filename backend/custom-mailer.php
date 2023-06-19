@@ -24,6 +24,7 @@ function custom_ajax_mailer(){
     $PARAMS_REQUIRED = isset($settings['params_required']) ? $settings['params_required'] : false;
     $PARAMS_ATTACHMENTS = isset($settings['params_attachments']) ? $settings['params_attachments'] : false;
     $LOG = isset($settings['log']) ? $settings['log'] : false;
+    $MAILFROM = isset($settings['mail_from']) ? $settings['mail_from'] : '';
     $MAILTO = isset($settings['mail_to']) ? $settings['mail_to'] : false;
     $MAILSUBJECT = isset($settings['mail_subject']) ? $settings['mail_subject'] : false;
   } else {
@@ -114,16 +115,16 @@ function custom_ajax_mailer(){
     }
 
     if(is_null($files[0])) {
-      $req = wp_mail($MAILTO, $MAILSUBJECT, $message);  
+      $req = wp_mail($MAILTO, $MAILSUBJECT, $message, $MAILFROM);  
     } else {
-      $req = wp_mail($MAILTO, $MAILSUBJECT, $message, '', $files);
+      $req = wp_mail($MAILTO, $MAILSUBJECT, $message, $MAILFROM, $files);
 
       foreach($files as $file){
         unlink($file);
       }
     }
   } else {
-    $req = wp_mail($MAILTO, $MAILSUBJECT, $message);
+    $req = wp_mail($MAILTO, $MAILSUBJECT, $message, $MAILFROM);
   }
 
   echo json_encode(array(
