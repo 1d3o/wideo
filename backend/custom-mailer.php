@@ -36,6 +36,8 @@ function custom_ajax_mailer(){
     return;
   }
 
+  $headers[] = $MAILFROM;
+
   // Code
   // -------------------------------------------------------------------------
 
@@ -115,16 +117,16 @@ function custom_ajax_mailer(){
     }
 
     if(is_null($files[0])) {
-      $req = wp_mail($MAILTO, $MAILSUBJECT, $message, $MAILFROM);  
+      $req = wp_mail($MAILTO, $MAILSUBJECT, $message, $headers);  
     } else {
-      $req = wp_mail($MAILTO, $MAILSUBJECT, $message, $MAILFROM, $files);
+      $req = wp_mail($MAILTO, $MAILSUBJECT, $message, $headers, $files);
 
       foreach($files as $file){
         unlink($file);
       }
     }
   } else {
-    $req = wp_mail($MAILTO, $MAILSUBJECT, $message, $MAILFROM);
+    $req = wp_mail($MAILTO, $MAILSUBJECT, $message, $headers);
   }
 
   echo json_encode(array(
