@@ -139,7 +139,7 @@ module.exports = (env, args) => {
 
   return {
     target: "web", // Added target
-    devtool: isDev ? "eval-cheap-module-source-map" : false,
+    devtool: isDev ? "source-map" : false,
     mode: args.mode,
     entry: entry,
     output: {

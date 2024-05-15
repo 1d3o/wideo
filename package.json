@@ -3,7 +3,7 @@
   "version": "3.0.0",
   "scripts": {
     "start": "webpack --mode=development",
-    "build": "webpack --mode=production && webpack --mode=production",
+    "build": "webpack --mode=production",
     "static": "rm -rf acf-json backend partials php-util plugins public 404.php footer.php functions.php header.php footer.php page.php style.css screenshot.png"
   },
   "engines": {
