@@ -6,29 +6,33 @@
     "build": "webpack --mode=production && webpack --mode=production",
     "static": "rm -rf acf-json backend partials php-util plugins public 404.php footer.php functions.php header.php footer.php page.php style.css screenshot.png"
   },
+  "engines": {
+    "node": ">= 18.12.0"
+  },
   "author": "1d3o",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/plugin-proposal-class-properties": "^7.7.0",
     "@babel/preset-env": "^7.5.5",
-    "autoprefixer": "^9.6.1",
+    "autoprefixer": "^10.4.0",
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",
-    "copy-webpack-plugin": "^5.0.4",
+    "copy-webpack-plugin": "^12.0.2",
     "cpy": "^7.3.0",
     "css-loader": "^3.1.0",
     "cssnano": "^4.1.10",
     "extract-loader": "^3.1.0",
-    "file-loader": "^4.1.0",
+    "file-loader": "^6.0.0",
     "fs-extra": "^7.0.1",
     "imagemin-webpack-plugin": "^2.4.2",
-    "mini-css-extract-plugin": "^0.9.0",
-    "postcss-loader": "^3.0.0",
-    "sass": "^1.51.0",
-    "sass-loader": "^7.1.0",
-    "webpack": "^4.37.0",
-    "webpack-cli": "^3.3.0"
+    "mini-css-extract-plugin": "^2.6.0",
+    "postcss-loader": "^4.1.0",
+    "postcss": "^8.1.0",
+    "sass": "^1.53.0",
+    "sass-loader": "^13.0.0",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1"
   },
   "dependencies": {
     "@stimulus/polyfills": "^2.0.0",
