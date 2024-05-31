@@ -57,14 +57,19 @@ module.exports = (env, args) => {
       compiler.hooks.beforeCompile.tap("WideoCleanTheme", () => {
         fs.removeSync("./build");
       });
-      compiler.hooks.afterCompile.tap("WideoBuildTheme", () => {
+      compiler.hooks.afterEmit.tap("WideoBuildTheme", (compilation) => {
         if (!isDev) {
           fs.mkdirSync("./build", { recursive: true });
+
+          // Copy all files except those in the ignore list
           fs.readdirSync("./").forEach((fileName) => {
             if (!wideoConfig.ignoreFiles.includes(fileName)) {
               fs.copySync(`./${fileName}`, `./build/${fileName}`);
             }
           });
+
+          // Copy assets (minified files)
+          fs.copySync("./assets", "./build/assets");
         }
       });
     },
@@ -138,18 +143,18 @@ module.exports = (env, args) => {
   ];
 
   return {
-    target: "web", // Added target
+    target: "web",
     devtool: isDev ? "source-map" : false,
     mode: args.mode,
     entry: entry,
     output: {
       filename: "[name].js",
       path: path.resolve(__dirname, "assets"),
-      clean: true, // Automatically clean the output directory
+      clean: true,
     },
     module: { rules: rules },
     plugins: plugins,
-    watch: isDev, // Ensure this is only set in dev mode
+    watch: isDev,
     optimization: {
       minimize: !isDev,
       minimizer: [
