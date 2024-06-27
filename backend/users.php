@@ -2,9 +2,9 @@
 
 /**
  * GESTIONE UTENZE.
- * Questo file imposta sutte le settings degli utenti con accesso al pannello di admin.
+ * Questo file imposta tutte le settings degli utenti con accesso al pannello di admin.
  * Di principio vengono eliminati tutti i ruoli di default di Wordpress ad eccezione dell'amministratore
- * e viene creato un ruolo "client" da fornire al cliente.
+ * e viene creato un ruolo "gestore" da fornire al cliente.
  */
 
 // Funzione per aggiungere ad un ruolo utente i permessi di accesso ad un custom post type.
@@ -26,6 +26,12 @@ function wideo_add_complete_access_to_to_cpt($singular, $plural, $role, $exclude
   if (!in_array('delete_others_'.$plural, $exclude)) $users->add_cap('delete_others_'.$plural); 
   if (!in_array('delete_published_'.$plural, $exclude)) $users->add_cap('delete_published_'.$plural);
   if (!in_array('delete_private_'.$plural, $exclude)) $users->add_cap('delete_private_'.$plural); 
+  if (!in_array('manage_terms', $exclude)) $users->add_cap('manage_terms');
+}
+
+// Funzione per rimuovere tutti i ruoli "gestore"
+function wideo_remove_all_gestore_roles() {
+  remove_role('gestore');
 }
 
 // Funzione principale che modifica i ruoli degli utenti
@@ -41,64 +47,101 @@ function wideo_edit_built_in_roles() {
     }
   }
 
+  // Rimuovere tutti i ruoli "gestore"
+  wideo_remove_all_gestore_roles();
+
   // add custom manager role
   $wp_roles->add_role(
-    'manager',
+    'gestore',
     'Gestore',
     array(
       // general
       'manage_options' => false,
       'read' => true,
       'upload_files' => true,
+      'manage_site_settings' => true, // Aggiungi questa capacità
 
       // pages
       'read_page' => true,
-      'edit_page'	=> true,
-      'delete_page'	=> false,
+      'edit_page' => true,
+      'delete_page' => false,
       'read_private_pages' => false,
-      'publish_pages'	=> false,
+      'publish_pages' => false,
       'edit_pages' => true,
-      'edit_others_pages'	=> true,
+      'edit_others_pages' => true,
       'edit_published_pages' => true,
       'edit_private_pages' => false,
       'delete_pages' => false,
-      'delete_others_pages'	=> false,
-      'delete_published_pages'	=> false,
-      'delete_private_pages'	=> false,
+      'delete_others_pages' => false,
+      'delete_published_pages' => false,
+      'delete_private_pages' => false,
 
       // posts
-      'read_post' => false,
-      'edit_post'	=> false,
-      'delete_post'	=> false,
-      'read_private_posts' => false,
-      'publish_posts'	=> false,
-      'edit_posts' => false,
-      'edit_others_posts'	=> false,
-      'edit_published_posts' => false,
-      'edit_private_posts' => false,
-      'delete_posts' => false,
-      'delete_others_posts'	=> false,
-      'delete_published_posts'	=> false,
-      'delete_private_posts'	=> false,
+      'read_post' => true,
+      'edit_post' => true,
+      'delete_post' => true,
+      'read_private_posts' => true,
+      'publish_posts' => true,
+      'edit_posts' => true,
+      'edit_others_posts' => true,
+      'edit_published_posts' => true,
+      'edit_private_posts' => true,
+      'delete_posts' => true,
+      'delete_others_posts' => true,
+      'delete_published_posts' => true,
+      'delete_private_posts' => true,
 
-      // users      
-      'list_users' => true,
-      'remove_users' => true,
-      'edit_users' => true,
-      'add_users' => true,
-      'create_users' => true,
-      'delete_users' => true,
+      // users - rimosse tutte le capacità riguardanti gli utenti
+      'list_users' => false,
+      'remove_users' => false,
+      'edit_users' => false,
+      'add_users' => false,
+      'create_users' => false,
+      'delete_users' => false,
 
       // custom taxonomies
       'manage_terms' => true,
+      'edit_terms' => true,
+      'delete_terms' => true,
+      'assign_terms' => true,
     )
   );
   
-  // Esempio applicazione permessi custom su un custom post type.
-  // wideo_add_complete_access_to_to_cpt('cpt', 'cpts', 'manager');
+  // Applicare permessi custom su custom post type e tassonomie.
+  wideo_add_complete_access_to_to_cpt('cpt', 'cpts', 'gestore');
 
-  // COMPILE_CODE_HERE: aggiungere eventuali ruoli copiando il codice utilizzato sopra per il ruolo "client"
+  // Esempio per articoli e tassonomie di notizie (news).
+  wideo_add_complete_access_to_to_cpt('news', 'news', 'gestore');
 }
 
-add_action('admin_menu', 'wideo_edit_built_in_roles');
- 
+add_action('admin_init', 'wideo_edit_built_in_roles');
+add_action('switch_theme', 'wideo_edit_built_in_roles');
+add_action('after_switch_theme', 'wideo_edit_built_in_roles');
+
+// Rimuovere le capacità di gestione utenti per il ruolo 'gestore' se esistono ancora
+function wideo_remove_user_capabilities() {
+  $role = get_role('gestore');
+  if ($role) {
+    $role->remove_cap('list_users');
+    $role->remove_cap('remove_users');
+    $role->remove_cap('edit_users');
+    $role->remove_cap('add_users');
+    $role->remove_cap('create_users');
+    $role->remove_cap('delete_users');
+  }
+}
+
+add_action('admin_init', 'wideo_remove_user_capabilities');
+
+// Nascondi menu degli utenti per il ruolo gestore
+function wideo_hide_user_menu_for_gestore() {
+  if (current_user_can('gestore')) {
+    remove_menu_page('users.php');
+  }
+}
+
+add_action('admin_menu', 'wideo_hide_user_menu_for_gestore', 999);
+
+
+
+?>
