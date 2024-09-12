@@ -32,6 +32,7 @@ function wideo_add_complete_access_to_to_cpt($singular, $plural, $role, $exclude
 // Funzione per rimuovere tutti i ruoli "gestore"
 function wideo_remove_all_gestore_roles() {
   remove_role('gestore');
+  remove_role('manager');
 }
 
 // Funzione principale che modifica i ruoli degli utenti
