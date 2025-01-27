@@ -39,6 +39,13 @@ function wideo_tgm_plugin(){
 			'required' => false,
 			'external_url' => 'https://it.wordpress.org/plugins/wp-mail-smtp/'
 		),
+		// Plugin gratuito: WooCommerce
+		array(
+			'name'      => 'WooCommerce',
+			'slug'      => 'woocommerce',
+			'required'  => true,
+			'external_url' => 'https://it.wordpress.org/plugins/woocommerce/',
+		),
 
 		// COMPILE_CODE_HERE: aggiungere eventuali plugin suggeriti o obbligatori
 	);
@@ -47,7 +54,7 @@ function wideo_tgm_plugin(){
 		'id'           => 'wideo-tgm',             // Specifica un ID univoco per evitare problemi con altre istanze di TGMPA
 		'default_path' => '',                      // Il percorso di default dove trovare i plugin caricati con il tema.
 		'menu'         => 'wideo-tgm-install-plugins', // Fornisci uno slug per la pagina opzioni.
-		'parent_slug'  => 'themes.php',            // Definisci il genitore della pagina opzioni nel menu.
+		'parent_slug'  => 'plugins.php',            // Definisci il genitore della pagina opzioni nel menu.
 		'capability'   => 'edit_theme_options',    // Specifica la capability necessaria per consultare la pagina opzioni
 		'has_notices'  => true,                    // Scegli se mostrare o meno le notice.
 		'dismissable'  => true,                    // Se impostato a false, l'utente non potrà chiudere la notice.
